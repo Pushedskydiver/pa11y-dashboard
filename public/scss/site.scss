@@ -33,7 +33,7 @@
 }
 
 .ruled {
-  border-bottom: dotted 1px @gray;
+  border-bottom: dotted 1px $gray;
 }
 
 .ruled-sm {
@@ -49,11 +49,11 @@
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 30px;
-  background-color: lighten(@gray-lighter, 4%);
+  background-color: lighten($gray-lighter, 4%);
 }
 
 .footer {
-  background-color: lighten(@gray-lighter, 4%);
+  background-color: lighten($gray-lighter, 4%);
   padding: 40px 0 20px 0;
   margin-top: 40px;
 }
@@ -77,7 +77,7 @@
   font-size: 112px;
   line-height: 97px;
   font-weight: bold;
-  color: @gray-light;
+  color: $gray-light;
 }
 
 .floated-list li {
@@ -143,27 +143,27 @@
 
 /* Type */
 .h1 {
-  margin-top: @line-height-computed;
-  margin-bottom: (@line-height-computed / 2);
+  margin-top: $line-height-computed;
+  margin-bottom: ($line-height-computed / 2);
 }
 
 /* Task stats boxes */
 .task-stats {
   margin-bottom: 10px;
-  font-size: floor(@font-size-base * 1.5); // ~22px;
+  font-size: floor($font-size-base * 1.5); // ~22px;
   line-height: 1;
   font-weight: bold;
 
   li {
 	width: 32%;
 	margin-right: 2%;
-	border-radius: @border-radius-base;
+	border-radius: $border-radius-base;
 
 	a {
 	  display: block;
 	  padding: 7px 0 6px 0;
 	  text-align: center;
-	  color: @badge-color;
+	  color: $badge-color;
 	}
 	&.last {
 	  margin-right: 0;
@@ -172,27 +172,27 @@
 }
 
 .stat-type {
-  font-size: floor(@font-size-base * 0.75); // ~11px;
+  font-size: floor($font-size-base * 0.75); // ~11px;
   text-transform: uppercase;
   display: block;
   line-height: 1.4;
-  .opacity(.8);
+  @include opacity(.8);
 }
 
 // Stats box colours
 .danger, .error {
-  background-color: @brand-danger;
-  color: @btn-default-color;
+  background-color: $brand-danger;
+  color: $btn-default-color;
 }
 
 .warning {
-  background-color: @brand-warning;
-  color: @btn-default-color;
+  background-color: $brand-warning;
+  color: $btn-default-color;
 }
 
 .info, .notice {
-  background-color: @brand-info;
-  color: @btn-default-color;
+  background-color: $brand-info;
+  color: $btn-default-color;
 }
 
 /* Task card */
@@ -200,12 +200,12 @@
   margin-bottom: 20px;
 
   .no-results {
-	font-size: floor(@font-size-base * 1.70); // ~25px;
+	font-size: floor($font-size-base * 1.70); // ~25px;
 	line-height: 1.5;
 	margin: 26px 0;
   }
   .task-card-link {
-	color: @gray-dark;
+	color: $gray-dark;
 	min-height: 190px;
 	display: block;
 	transition: background 0.5s;
@@ -220,7 +220,7 @@
   .task-card-link:hover,
   &:hover .task-card-link {
 	text-decoration: none;
-	background-color: darken(@gray-lighter, 2%);
+	background-color: darken($gray-lighter, 2%);
   }
   .h3 {
 	text-overflow: ellipsis;
@@ -231,7 +231,7 @@
   .task-stats li {
 	padding: 7px 0 6px 0;
 	text-align: center;
-	color: @badge-color;
+	color: $badge-color;
   }
   .dropdown-menu {
 	top: 25px;
@@ -243,7 +243,7 @@
   border-radius: 0.25em;
   display: inline-block;
   padding: 10px;
-  font-size: ceil(@font-size-base * 0.85); // ~13px;
+  font-size: ceil($font-size-base * 0.85); // ~13px;
   text-transform: uppercase;
 }
 
@@ -285,7 +285,7 @@
 	  .category-list__link,
 	  .category-list__link:hover,
 	  .category-list__link:focus {
-		color: @brand-danger;
+		color: $brand-danger;
 	  }
 	}
 
@@ -294,7 +294,7 @@
 	  .category-list__link,
 	  .category-list__link:hover,
 	  .category-list__link:focus {
-		color: @brand-warning;
+		color: $brand-warning;
 	  }
 	}
 
@@ -303,7 +303,7 @@
 	  .category-list__link,
 	  .category-list__link:hover,
 	  .category-list__link:focus {
-		color: @brand-info;
+		color: $brand-info;
 	  }
 	}
 
@@ -312,7 +312,7 @@
 	  .category-list__link,
 	  .category-list__link:hover,
 	  .category-list__link:focus {
-		color: @badge-bg;
+		color: $badge-bg;
 	  }
 	}
   }
@@ -321,7 +321,7 @@
 .tasks-list {
   padding: 15px;
   margin-bottom: 30px;
-  border: 1px solid @gray-lighter;
+  border: 1px solid $gray-lighter;
   border-top: 0;
 
   .panel {
@@ -364,39 +364,39 @@
   &_type_error {
 	.rule-name,
 	.ignore-form .link {
-	  color: @brand-danger;
+	  color: $brand-danger;
 	}
 
 	.badge {
-	  background: @brand-danger;
+	  background: $brand-danger;
 	}
   }
 
   &_type_warning {
 	.rule-name,
 	.ignore-form .link {
-	  color: @brand-warning;
+	  color: $brand-warning;
 	}
 
 	.badge {
-	  background: @brand-warning;
+	  background: $brand-warning;
 	}
   }
 
   &_type_notice {
 	.rule-name,
 	.ignore-form .link {
-	  color: @brand-info;
+	  color: $brand-info;
 	}
 
 	.badge {
-	  background: @brand-info;
+	  background: $brand-info;
 	}
   }
 
   &_type_ignore {
 	.ignore-form .link {
-	  color: @badge-bg;
+	  color: $badge-bg;
 	}
   }
 
@@ -447,7 +447,7 @@
 .heading {
   margin-top: 12px;
   padding: 11px;
-  color: @btn-default-color;
+  color: $btn-default-color;
   font-weight: bold;
   border-radius: 3px;
 
@@ -463,7 +463,7 @@
 
 /* Date selector */
 ul.date-links {
-  .list-unstyled();
+  @include list-unstyled();
   position: absolute;
   top: 44px;
   left: 0;
@@ -530,7 +530,7 @@ ul.date-links {
   li {
 	width: 32%;
 	margin-right: 2%;
-	border-radius: @border-radius-base;
+	border-radius: $border-radius-base;
 
 	.series-checkbox-container {
 	  padding: 4px 4px 5px 4px;
@@ -552,7 +552,7 @@ ul.date-links {
 	}
 
 	&:hover {
-	  .opacity(.85);
+	  @include opacity(.85);
 	}
   }
 }
@@ -652,7 +652,7 @@ ul.date-links {
   overflow: hidden;
   overflow-y: auto;
   margin-bottom: 15px;
-  border-bottom: 1px solid @gray-lighter;
+  border-bottom: 1px solid $gray-lighter;
 
   .checkbox {
 	cursor: pointer;
@@ -692,7 +692,7 @@ ul.date-links {
 	width: 90px;
 	left: 50%;
 	top: -45px;
-	background-color: lighten(@gray-lighter, 4%);
+	background-color: lighten($gray-lighter, 4%);
 	transform: translateX(-50%) rotate(45deg);
 	-ms-transform: translateX(-50%) rotate(45deg);
 	-webkit-transform: translateX(-50%) rotate(45deg);
@@ -710,8 +710,8 @@ ul.date-links {
 
 .inline-list > li {
   display: inline-block;
-  border-right: 1px solid @dropdown-fallback-border; // IE8 fallback
-  border-right: 1px solid @dropdown-border;
+  border-right: 1px solid $dropdown-fallback-border; // IE8 fallback
+  border-right: 1px solid $dropdown-border;
   padding: 0 4px 0 0;
   margin: 0 4px 0 0;
 }

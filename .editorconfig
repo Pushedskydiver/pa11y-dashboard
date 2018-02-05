@@ -9,5 +9,24 @@ insert_final_newline = true
 indent_style = tab
 trim_trailing_whitespace = true
 
+# Markdown
 [*.md]
 trim_trailing_whitespace = false
+
+# HTML
+[*.html]
+charset = utf-8
+indent_size = 4
+indent_style = space
+
+# Javascript
+[*.js]
+charset = utf-8
+indent_size = 2
+indent_style = space
+
+# SCSS
+[*.scss]
+charset = utf-8
+indent_size = 2
+indent_style = space
