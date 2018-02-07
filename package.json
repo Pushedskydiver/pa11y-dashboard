@@ -38,6 +38,7 @@
   "devDependencies": {
     "bower": "~1.7",
     "cheerio": "~0.20",
+    "cross-env": "^5.1.3",
     "eslint": "^3.18.0",
     "less": "~2.7",
     "mocha": "^2",
@@ -47,7 +48,8 @@
     "uglify-js": "~2.6"
   },
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
+    "heroku-prebuild": "npm install && gulp default --prod",
+    "start": "cross-env NODE_ENV=production node index.js",
     "test": "make ci"
   }
 }
