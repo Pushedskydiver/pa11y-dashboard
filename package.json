@@ -48,7 +48,6 @@
     "uglify-js": "~2.6"
   },
   "scripts": {
-    "heroku-prebuild": "npm install && gulp default --prod",
     "start": "cross-env NODE_ENV=production node index.js",
     "test": "make ci"
   }
