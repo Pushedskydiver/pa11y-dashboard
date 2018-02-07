@@ -16,7 +16,7 @@ lint: verify
 
 # Compile LESS
 less:
-	@less -x ./public/less/main.less ./public/css/site.min.css
+	@lessc -x ./public/less/main.less ./public/css/site.min.css
 	@$(TASK_DONE)
 
 # Compile client-side JavaScript

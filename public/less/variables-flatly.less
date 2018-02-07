@@ -8,7 +8,7 @@
 // Grays
 // -------------------------
 
-@gray-darker: lighten(#000, 13.5%); // #222
+@gray-darker: #000;
 @gray-dark: #616D6E;
 @gray: #6C7878;
 @gray-light: #7C8C8D;
@@ -17,31 +17,33 @@
 // Brand colors
 // -------------------------
 
-@brand-primary: #2C3E50;
-@brand-success: #00806F;
-@brand-warning: #A86700;
-@brand-danger: #D83D2D;
-@brand-info: #177BBE;
+@brand-primary: #6238bd;
+@brand-success: #21d67f;
+@brand-warning: #f9b800;
+@brand-danger: #ff4c2f;
+@brand-info: @brand-primary;
 
 // Scaffolding
 // -------------------------
 
 @body-bg: #fff;
-@text-color: @brand-primary;
+@text-color: @gray-darker;
 
 // Links
 // -------------------------
 
-@link-color: @brand-success;
+@link-color: @brand-primary;
 @link-hover-color: @link-color;
 
 // Typography
 // -------------------------
 
-@font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-heading: calibre-semibold, Arial, sans-serif;
+@font-family-sans-serif-body: calibre-light, Arial, sans-serif;
 @font-family-serif: Georgia, "Times New Roman", Times, serif;
 @font-family-monospace: Monaco, Menlo, Consolas, "Courier New", monospace;
-@font-family-base: @font-family-sans-serif;
+@font-family-heading: @font-family-sans-serif-heading;
+@font-family-base: @font-family-sans-serif-body;
 
 @font-size-base: 15px;
 @font-size-large: ceil(@font-size-base * 1.25); // ~18px
@@ -50,7 +52,7 @@
 @line-height-base: 1.428571429; // 20/14
 @line-height-computed: floor(@font-size-base * @line-height-base); // ~20px
 
-@headings-font-family: @font-family-base;
+@headings-font-family: @font-family-heading;
 @headings-font-weight: 500;
 @headings-line-height: 1.1;
 
