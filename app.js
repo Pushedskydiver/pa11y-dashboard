@@ -33,7 +33,7 @@ function initApp(config, callback) {
 
 	let webserviceUrl = config.webservice;
 	if (typeof webserviceUrl === 'object') {
-		webserviceUrl = `http://${webserviceUrl.host}:${port}/`;
+		webserviceUrl = `http://${webserviceUrl.host}:${webserviceUrl.port}/`;
 	}
 
 	const app = new EventEmitter();
