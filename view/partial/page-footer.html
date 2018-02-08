@@ -14,28 +14,26 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
-<footer>
-	<div class="footer" role="contentinfo">
-		<div class="container">
-			<div class="col-md-5">
-				<small>&copy; 2013–{{year}} Team Pa11y.<br/>Pa11y Dashboard is licensed under the GNU General Public License 3.0.<br/>Version {{version}}</small>
-			</div>
-			<div class="col-md-7 clearfix">
-				<ul class="crunch-bottom floated-list nav">
-					<li>
-						<a href="{{repo}}">GitHub Repo</a>
-					</li>
-					<li>
-						<a href="{{bugtracker}}">Bug Tracker</a>
-					</li>
-					<li>
-						<a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0 spec</a>
-					</li>
-					<li>
-						<a href="http://squizlabs.github.io/HTML_CodeSniffer/">HTML_CodeSniffer</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__copyright">
+            <small>&copy; 2013–{{year}} Team Pa11y.<br/>Pa11y Dashboard is licensed under the GNU General Public License 3.0.<br/>Version {{version}}</small>
+        </div>
+        <div class="footer__navigation">
+            <ul class="footer__navigation-list">
+                <li class="footer__navigation-list-item">
+                    <a class="footer__navigation-llist-ink" href="{{repo}}">GitHub Repo</a>
+                </li>
+                <li class="footer__navigation-list-item">
+                    <a class="footer__navigation-list-link" href="{{bugtracker}}">Bug Tracker</a>
+                </li>
+                <li class="footer__navigation-list-item">
+                    <a class="footer__navigation-list-link" href="http://www.w3.org/TR/WCAG20/">WCAG 2.0 spec</a>
+                </li>
+                <li class="footer__navigation-list-item">
+                    <a class="footer__navigation-list-link" href="http://squizlabs.github.io/HTML_CodeSniffer/">HTML_CodeSniffer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </footer>

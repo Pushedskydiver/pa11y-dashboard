@@ -15,45 +15,48 @@ You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<ul class="list-unstyled clearfix crunch-bottom">
+<ul class="tasks_l_ist">
 
-	{{#unless readonly}}
-	        <li class="col-md-4 col-sm-6 task-card add-task">
-			<a class="well task-card-link crunch-bottom" data-role="add-task" href="/new" data-test="add-task">
-				<p class="h3 crunch">Add new URL</p>
-				<p class="supersize-me crunch">+</p>
-			</a>
-		</li>
-	{{/unless}}
-	{{#each tasks}}
-		<li class="col-md-4 col-sm-6 task-card" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
-			<a class="well task-card-link crunch-bottom" title="Details for URL {{simplify-url url}}" href="{{href}}">
-				<p class="h3">{{name}}</p>
-				<p class="h5">({{standard}})</p>
-				{{#if lastResult}}
-				<ul class="clearfix list-unstyled floated-list task-stats">
-					{{#lastResult}}
-						<li class="danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stat-type">Errors</span></li>
-						<li class="warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stat-type">Warnings</span></li>
-						<li class="info last" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stat-type">Notices</span></li>
-					{{/lastResult}}
-				</ul>
-				Last run {{date-format lastResult.date format="DD MMM YYYY"}}
-				{{else}}
-					<p class="no-results">No results</p>
-				{{/if}}
-			</a>
-			{{#unless ../readonly}}
-				<div class="btn-group options-button text-right">
-					<button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown"><span class="sr-only">Options</span><span class="glyphicon glyphicon-cog"></span></button>
-					<ul class="dropdown-menu pull-right" role="menu">
-						<li><a href="{{href}}/edit">Edit this task</a></li>
-						<li><a href="{{href}}/delete">Delete this task</a></li>
-						<li class="divider"></li>
-						<li><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
-					</ul>
-				</div>
-			{{/unless}}
-		</li>
-	{{/each}}
+{{#unless readonly}}
+    <li class="tasks__list-item tasks__list-item--add">
+        <a class="tasks__list-link" href="/new" data-role="add-task" data-test="add-task">
+            <p class="tasks__list-title">Add new URL</p>
+            <p class="tasks__list-plus">+</p>
+        </a>
+    </li>
+{{/unless}}
+
+    {{#each tasks}}
+    	<li class="tasks__list-item" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
+            <a class="tasks__list-link" title="Details for URL {{simplify-url url}}" href="{{href}}">
+                <p class="tasks__list-title">{{name}}</p>
+                <p class="tasks__list-sub-title">({{standard}})</p>
+            {{#if lastResult}}
+                <ul class="stats__list">
+                {{#lastResult}}
+                    <li class="stats__list-item stats__list-item--danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stats__list-type">Errors</span></li>
+                    <li class="stats__list-item stats__list-item--warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stats__list-type">Warnings</span></li>
+                    <li class="stats__list-item stats__list-item--info" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stats__list-type">Notices</span></li>
+                {{/lastResult}}
+                </ul>
+
+                Last run {{date-format lastResult.date format="DD MMM YYYY"}}
+            {{else}}
+                <p class="results results--none">No results</p>
+            {{/if}}
+            </a>
+        {{#unless ../readonly}}
+            <div class="options">
+                <button type="button" class="options__button" data-toggle="dropdown"><span class="options__body">Options</span><span class="options__icon"></span></button>
+
+                <ul class="options__list" role="menu">
+                    <li class="options__list-item"><a href="{{href}}/edit">Edit this task</a></li>
+                    <li class="options__list-item"><a href="{{href}}/delete">Delete this task</a></li>
+                    <li class="options__list-item--divider"></li>
+                    <li class="options__list-item"><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
+                </ul>
+            </div>
+        {{/unless}}
+    	</li>
+    {{/each}}
 </ul>
