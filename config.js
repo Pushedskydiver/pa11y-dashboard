@@ -27,7 +27,7 @@ if (fs.existsSync(jsonPath)) {
 	module.exports = {
 		port: Number(env('PORT', '4000')),
 		noindex: env('NOINDEX', 'true') === 'true',
-		readonly: env('READONLY', 'false') === 'true',
+		readonly: env('READONLY', 'true') === 'true',
 
 		webservice: env('WEBSERVICE_URL', {
 			database: env('WEBSERVICE_DATABASE', process.env.MONGO_DB),
