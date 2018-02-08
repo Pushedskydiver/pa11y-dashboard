@@ -33,7 +33,7 @@ if (fs.existsSync(jsonPath)) {
 			database: env('WEBSERVICE_DATABASE', process.env.MONGO_DB),
 			host: env('WEBSERVICE_HOST', '0.0.0.0'),
 			port: Number(env('WEBSERVICE_PORT', '3000')),
-			cron: env('WEBSERVICE_CRON', '* * * * *')
+			cron: env('WEBSERVICE_CRON', '0 0 * * *')
 		})
 	};
 }
