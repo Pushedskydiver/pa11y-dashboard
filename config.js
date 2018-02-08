@@ -30,7 +30,7 @@ if (fs.existsSync(jsonPath)) {
 		readonly: env('READONLY', 'false') === 'true',
 
 		webservice: env('WEBSERVICE_URL', {
-			database: env('WEBSERVICE_DATABASE', 'mongodb://localhost/pa11y-webservice'),
+			database: env('WEBSERVICE_DATABASE', 'mongodb://pa11y:Pa11yD4sh!@ds125388.mlab.com:25388/pa11y-dashboard'),
 			host: env('WEBSERVICE_HOST', '0.0.0.0'),
 			port: Number(env('WEBSERVICE_PORT', '3000')),
 			cron: env('WEBSERVICE_CRON', false)
