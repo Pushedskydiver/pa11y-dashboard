@@ -48,7 +48,7 @@
     "uglify-js": "~2.6"
   },
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
     "test": "make ci"
   }
 }

@@ -29,7 +29,7 @@ module.exports = initApp;
 function initApp(config, callback) {
 	config = defaultConfig(config);
 
-  const port = process.env.PORT || config.port
+  const port = process.env.PORT || config.port;
 
 	let webserviceUrl = config.webservice;
 	if (typeof webserviceUrl === 'object') {
@@ -126,7 +126,7 @@ function initApp(config, callback) {
 
 	app.server.listen(port, error => {
 		const address = app.server.address();
-		app.address = `http://${address.address}:${port}`;
+		app.address = `http://${address.address}:${address.port}`;
 		callback(error, app);
 	});
 
