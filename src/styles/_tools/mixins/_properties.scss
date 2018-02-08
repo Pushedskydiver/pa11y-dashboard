@@ -1,0 +1,13 @@
+// Properties.........Convert map to CSS properties.
+
+@mixin map-to-props($map){
+  @if type-of($map) == map {
+    @each $prop, $value in $map {
+      @if type-of($value) != map {
+        #{inspect($prop)}: #{inspect($value)};
+      } @else {
+        @include map-to-props($value);
+      }
+    }
+  }
+}

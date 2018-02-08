@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const getStandards = require('../data/standards');
+const getStandards = require('../_data/standards');
 const httpHeaders = require('http-headers');
 
 module.exports = route;

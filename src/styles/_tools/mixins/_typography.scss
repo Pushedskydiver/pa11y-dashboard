@@ -1,0 +1,100 @@
+// Typography.........Mixin to add typography.
+
+// Font styles map configuration
+$headings: (
+  sun: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(3em + 0.5vw),
+    line-height: 1.1,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 1.75)
+  ),
+  jupiter: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(2.3em + 0.5vw),
+    line-height: $core-secondary-line-height,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 1.75)
+  ),
+  saturn: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(2em + 0.5vw),
+    line-height: $core-secondary-line-height,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 1.5)
+  ),
+  uranus: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(1.7em + 0.5vw),
+    line-height: $core-secondary-line-height,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 1.5)
+  ),
+  mars: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(1.3em + 0.5vw),
+    line-height: $core-secondary-line-height,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: $core-margin
+  ),
+  venus: (
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(1.1em + 0.5vw),
+    line-height: $core-secondary-line-height,
+    font-weight: $core-secondary-font-weight,
+    margin-top: 0,
+    margin-bottom: $core-margin
+  ),
+  pluto: (
+    color: $core-color-body,
+    font-size: calc(1em + 0.5vw),
+    line-height: 1.1,
+    font-weight: $core-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 2)
+  ),
+  earth: (
+    color: $core-color-body,
+    font-size: calc(#{$core-font-size} + 0.15vw),
+    line-height: $core-line-height,
+    font-weight: $core-tertiary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 2)
+  ),
+  moon: (
+    color: $core-color-body,
+    font-size: calc(0.8em + 0.15vw),
+    line-height: $core-line-height,
+    font-weight: $core-tertiary-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin / 2)
+  ),
+  bodyCopy: (
+    font-size: calc(#{$core-font-size} + 0.1vw),
+    line-height: $core-line-height,
+    font-weight: $core-font-weight,
+    margin-top: 0,
+    margin-bottom: ($core-margin * 2)
+  )
+);
+
+@mixin text($style) {
+  $props: map-get($headings, $style);
+
+  @if $props == null {
+    @warn 'text style \"#{$style}\" not found';
+  } @else {
+    @include map-to-props($props);
+  }
+}

@@ -1,0 +1,21 @@
+// Transitions........Simple mixxins for css transition properties.
+
+@mixin transition($element, $duration, $transition) {
+  transition: $element $duration $transition;
+}
+
+@mixin no-transition {
+  @include transition(none, null, null);
+}
+
+@mixin transition-025($property) {
+  @include transition($property, 0.25s, ease-in-out);
+}
+
+@mixin transition-03($property) {
+  @include transition($property, 0.3s, ease-in-out);
+}
+
+@mixin transition-05($property) {
+  @include transition($property, 0.5s, ease-in-out);
+}

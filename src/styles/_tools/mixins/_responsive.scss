@@ -1,0 +1,43 @@
+// Responsive.........Responsive media queries configuration.
+
+// Breakpoints map configuration
+$breakpoints: (
+  xs: 23.375em,
+  s: 37.5em,
+  m: 48em,
+  l: 62em,
+  xl: 75em
+);
+
+@mixin min($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media screen and (min-width: #{inspect(map-get($breakpoints, $name))}) {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+@mixin max($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media screen and (max-width: (#{inspect(map-get($breakpoints, $name))} - 0.0625em)) {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+@mixin min-max($min, $max) {
+  @if map-has-key($breakpoints, $min) {
+    @media screen and (min-width: #{inspect(map-get($breakpoints, $min))}) and (max-width: (#{inspect(map-get($breakpoints, $max))} - 0.0625em)) {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}

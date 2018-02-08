@@ -16,7 +16,7 @@
 
 const _ = require('underscore');
 const presentIgnoreRules = require('./ignore');
-const techs = require('../../data/techniques')();
+const techs = require('../../_data/techniques')();
 
 module.exports = presentResult;
 

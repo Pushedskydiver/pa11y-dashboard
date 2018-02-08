@@ -1,0 +1,17 @@
+// Container..........Mixin to add standard layout styles.
+
+@mixin container {
+  position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @include min(xs) {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  @include min(xl) {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

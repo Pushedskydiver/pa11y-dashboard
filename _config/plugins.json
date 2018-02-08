@@ -1,0 +1,86 @@
+{
+  "autoprefixer": {
+    "browsers": [
+      "last 2 versions",
+      "not ie <= 11"
+    ]
+  },
+  "cssnano": {
+    "autoprefixer": true,
+    "calc": true,
+    "colormin": true,
+    "convertValues": true,
+    "core": false,
+    "discardComments": {
+      "removeAll": true
+    },
+    "discardDuplicates": true,
+    "discardEmpty": true,
+    "filterOptimiser": false,
+    "filterPlugins": false,
+    "functionOptimiser": false,
+    "mergeIdents": false,
+    "mergeLonghand": true,
+    "mergeRules": false,
+    "minifyFontValues": true,
+    "minifyGradients": true,
+    "minifySelectors": false,
+    "normalizeCharset": false,
+    "normalizeUrl": true,
+    "orderedValues": true,
+    "reduceIdents": false,
+    "reduceTransforms": true,
+    "styleCache": false,
+    "svgo": false,
+    "uniqueSelectors": true,
+    "zindex": false
+  },
+  "imgmin": {
+    "options": {
+      "optimizationLevel": 7,
+      "progressive": true,
+      "interlaced": true
+    }
+  },
+  "mqpacker": {
+    "sort": true
+  },
+  "stylelint": {
+    "failAfterError": true,
+    "syntax": "scss",
+    "reportOutputDir": "src/reports/stylelint/",
+    "reporters": [
+      {"formatter": "verbose", "console": true},
+      {"formatter": "verbose", "save": "stylelint.txt"}
+    ]
+  },
+  "uglify": {
+    "minimize": true,
+    "warnings": false,
+    "sourceMap": false,
+    "mangle": {
+      "except": ["exports", "require"]
+    },
+    "compress": {
+      "sequences": true,
+      "properties": false,
+      "dead_code": false,
+      "drop_debugger": false,
+      "unsafe": false,
+      "conditionals": true,
+      "comparisons": true,
+      "evaluate": true,
+      "booleans": false,
+      "loops": false,
+      "unused": false,
+      "hoist_funs": false,
+      "hoist_vars": false,
+      "if_return": false,
+      "join_vars": true,
+      "cascade": true,
+      "side_effects": false,
+      "warnings": false,
+      "global_defs": {}
+    }
+  }
+}

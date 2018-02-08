@@ -1,0 +1,46 @@
+{
+  "source": {
+    "base": "./src/",
+    "data": "./src/data/",
+    "layouts": "./_layouts/",
+    "partials": "./_partials/",
+    "content": "./src/pages/",
+    "fonts": "./src/fonts/**/*",
+    "icons": "./src/icons/*",
+    "favicons": "./src/favicons/",
+    "images": "./src/images/**/*",
+    "forms": "./src/forms/",
+    "scripts": {
+      "common": "./src/scripts/common/",
+      "vendor": "./src/scripts/vendor/"
+    },
+    "styles": "./src/styles/"
+  },
+  "dist": {
+    "base": "./public/",
+    "fonts": "./public/fonts/",
+    "icons": "./public/images/icons/",
+    "favicons": "./public/favicons/",
+    "images": "./public/images/",
+    "forms": "./public/forms/",
+    "scripts": "./public/js/",
+    "styles": "./public/css/"
+  },
+  "reports": {
+    "stylelint": "./src/reports/stylelint/",
+    "eslint": "./src/reports/eslint/"
+  },
+  "sass": {
+    "settings": "./src/styles/_settings/**/*.scss",
+    "tools": {
+      "functions": "./src/styles/_tools/functions/*.scss",
+      "props": "./src/styles/_tools/mixins/_properties.scss",
+      "mixins": "./src/styles/_tools/mixins/*.scss"
+    },
+    "generic": "./src/styles/_generic/**/*.scss",
+    "elements": "./src/styles/_elements/**/*.scss",
+    "objects": "./src/styles/_objects/**/*.scss",
+    "components": "./src/styles/_components/**/*.scss",
+    "trumps": "./src/styles/_trumps/**/*.scss"
+  }
+}

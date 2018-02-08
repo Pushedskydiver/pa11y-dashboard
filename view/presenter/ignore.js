@@ -14,7 +14,7 @@
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 'use strict';
 
-const standardsArray = require('../../data/standards')();
+const standardsArray = require('../../_data/standards')();
 const rules = createStandardDescriptionMap(standardsArray);
 
 module.exports = presentIgnoreRules;

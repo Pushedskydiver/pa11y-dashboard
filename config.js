@@ -16,8 +16,8 @@
 
 const fs = require('fs');
 const environment = (process.env.NODE_ENV || 'development');
-const jsonPath = `./config/${environment}.json`;
-const jsPath = `./config/${environment}.js`;
+const jsonPath = `./_config/${environment}.json`;
+const jsPath = `./_config/${environment}.js`;
 
 if (fs.existsSync(jsonPath)) {
 	module.exports = require(jsonPath);

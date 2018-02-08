@@ -1,0 +1,33 @@
+// Fonts..............The sites typography faces.
+
+// Nunito Sans
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans/nunito-sans-regular.woff2") format("woff2"),
+  url("../fonts/nunito-sans/nunito-sans-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: $core-font-weight;
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito-sans/nunito-sans-semi-bold.woff2") format("woff2"),
+  url("../fonts/nunito-sans/nunito-sans-semi-bold.woff") format("woff"),;
+  font-style: normal;
+  font-weight: $core-tertiary-font-weight;
+}
+
+// Ubuntu
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-regular.woff2") format("woff2"),
+  url("../fonts/ubuntu/ubuntu-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: $core-font-weight;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/ubuntu/ubuntu-medium.woff2") format("woff2"),
+  url("../fonts/ubuntu/ubuntu-medium.woff") format("woff");
+  font-style: normal;
+  font-weight: $core-secondary-font-weight;
+}

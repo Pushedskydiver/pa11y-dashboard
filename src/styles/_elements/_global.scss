@@ -1,0 +1,163 @@
+// Global.............The sites core styles.
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $core-font-size;
+}
+
+body {
+  @include text(bodyCopy);
+  color: $core-color-body;
+  font-family: Helvetica, sans-serif;
+  background-color: $core-color-background;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  @include min(l) {
+    font-family: $core-font-family;
+  }
+}
+
+body ::-moz-selection {
+  background: $core-color-brand;
+  color: $core-color-background;
+}
+
+body ::selection {
+  background: $core-color-brand;
+  color: $core-color-background;
+}
+
+h1 {
+  @include text(jupiter);
+}
+
+h2 {
+  @include text(saturn);
+}
+
+h3 {
+  @include text(uranus);
+}
+
+h4 {
+  @include text(mars);
+}
+
+h5 {
+  @include text(earth);
+}
+
+a {
+  color: $core-color-brand;
+  text-decoration: none;
+
+  @include min(l) {
+    @include transition-03(all);
+    cursor: pointer;
+  }
+}
+
+strong {
+  color: $core-color-brand;
+}
+
+ul,
+ol,
+dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dd {
+  margin-left: 0;
+}
+
+li {
+  @include text(bodyCopy);
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
+img:not([src]) {
+  visibility: hidden;
+}
+
+blockquote {
+  margin: 0;
+}
+
+legend {
+  display: none;
+}
+
+input {
+  @include text(bodyCopy);
+  font-family: Helvetica, sans-serif;
+  border-radius: 0;
+  appearance: none;
+
+  @include min(l) {
+    font-family: $core-font-family;
+  }
+}
+
+textarea {
+  @include text(bodyCopy);
+  font-family: Helvetica, sans-serif;
+  border-radius: 0;
+  appearance: none;
+
+  @include min(l) {
+    font-family: $core-font-family;
+  }
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  appearance: none;
+
+  @include min(l) {
+    @include transition-03(all);
+    font-family: $core-font-family;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: ($core-margin * 3);
+}
+
+hr {
+  margin: ($core-margin * 2) 0;
+  border-color: $core-color-foreground;
+  opacity: 0.1;
+}
+
+svg {
+  @include transition-03(all);
+}

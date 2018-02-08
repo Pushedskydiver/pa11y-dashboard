@@ -1,0 +1,55 @@
+/* ============================================================ *\
+
+  #MAIN
+
+  Author:  Alex Clapperton
+  Website: alexclapperton.co.uk
+
+/* ============================================================ */
+
+/**
+* CONTENTS
+* 
+* _SETTINGS
+*  Variables..........The sites core sass variables.
+* 
+* FUNCTIONS
+*  Z-index............Z-index map configuration.
+* 
+* MIXINS
+*  Properties.........Convert map to CSS properties.
+*  Buttons............Mixin to add button styles.
+*  Container..........Mixin to add standard layout styles.
+*  Flexbox............Simple flexbox mixin.
+*  Responsive.........Responsive media queries configuration.
+*  Transforms.........Simple mixins for css transform properties.
+*  Transitions........Simple mixxins for css transition properties.
+*  Typography.........Mixin to add typography.
+* 
+* _GENERIC
+*  Fonts..............The sites typography faces.
+* 
+* _ELEMENTS
+*  Global.............The sites core styles.
+* 
+* _OBJECTS
+*  Layout.............Generic layout module.
+*
+*/
+
+
+
+
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_settings/_variables.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/functions/_z-index.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_properties.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_buttons.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_container.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_flexbox.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_responsive.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_transforms.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_transitions.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_typography.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_generic/_fonts.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_elements/_global.scss";
+@import "/Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_objects/_layout.scss";

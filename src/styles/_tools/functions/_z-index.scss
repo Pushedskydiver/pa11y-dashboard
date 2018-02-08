@@ -1,0 +1,41 @@
+// Z-index............Z-index map configuration.
+
+// z-index layer map
+$z-index: (
+  alpha: (),
+  beta: (),
+  charlie: (),
+  delta: (),
+  echo: (),
+  foxtrot: (),
+  golf: (),
+  hotel: (),
+  india: (),
+  juliet: (),
+  kilo: ()
+);
+
+/**
+* Grab the values from the $z-index map and convert to numbers
+* and increment each value by 10 for consistency
+* e.g. alpha becomes 10, beta becomes 20 etc.
+*/
+@function z-index($key1, $key2: null) {
+  $map: $z-index;
+  $found-index: null;
+
+  @if (map-has-key($map, $key1)) {
+    $found-index: index(map-keys($map), $key1) * 10;
+
+    @if ($key2) {
+      $map: map-get($map, $key1);
+      $found-index: index($map, $key2);
+    }
+  }
+
+  @return $found-index;
+}
+
+@function z($key1, $key2: null) {
+  @return z-index($key1, $key2);
+}

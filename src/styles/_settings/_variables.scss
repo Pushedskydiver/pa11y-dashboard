@@ -1,0 +1,29 @@
+// Variables..........The sites core sass variables.
+
+$core-grid-width: 1170px !default;
+$core-grid-unit: 12px !default;
+
+$core-color-brand: #6238bd !default;
+$core-color-secondary: #21d67f !default;
+$core-color-tertiary: #ff4c2f !default;
+$core-color-background: #ffffff !default;
+$core-color-foreground: #000000 !default;
+$core-color-neutral: #d9d9d9 !default;
+$core-color-link: $core-color-brand !default;
+$core-color-body: rgba($core-color-foreground, 0.7) !default;
+
+$core-border-width: 2px !default;
+$core-border-style: solid !default;
+$core-border-color: $core-color-neutral !default;
+
+$core-font-family: 'Nunito Sans', sans-serif !default;
+$core-secondary-font-family: 'Ubuntu', sans-serif !default;
+$core-font-size: 16px !default;
+$core-line-height: 1.7 !default;
+$core-secondary-line-height: 1.3 !default;
+$core-font-weight: 400 !default;
+$core-secondary-font-weight: 500 !default;
+$core-tertiary-font-weight: 600 !default;
+
+$core-margin: $core-grid-unit !default;
+$core-padding: $core-grid-unit !default;

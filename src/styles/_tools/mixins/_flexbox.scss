@@ -1,0 +1,61 @@
+// Flexbox............Simple flexbox mixin.
+
+@mixin flexbox {
+  display: flex;
+}
+
+@mixin flex-wrap($value) {
+  @if $value == wrap {
+    flex-wrap: wrap;
+  }
+  @if $value == nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+@mixin flex-direction($value) {
+  @if $value == column {
+    flex-direction: column;
+  }
+  @else if $value == row {
+    flex-direction: row;
+  }
+  @else {
+    @warn 'The value must be either row or column';
+  }
+}
+
+@mixin justify-content($value) {
+  @if $value == space-between {
+    justify-content: space-between;
+  }
+  @if $value == center {
+    justify-content: center;
+  }
+  @if $value == flex-start {
+    justify-content: flex-start;
+  }
+  @if $value == flex-end {
+    justify-content: flex-end;
+  }
+}
+
+@mixin align-items($value) {
+  @if $value == center {
+    align-items: center;
+  }
+  @if $value == start {
+    align-items: flex-start;
+  }
+  @if $value == end {
+    align-items: flex-end;
+  }
+}
+
+@mixin flex($wrap, $direction, $justify, $align) {
+  @include flexbox;
+  @include flex-wrap($wrap);
+  @include flex-direction($direction);
+  @include justify-content($justify);
+  @include align-items($align);
+}
