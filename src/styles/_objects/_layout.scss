@@ -1,5 +1,22 @@
 // Layout.............Generic layout module.
 
 .container {
-  @include container;
+  @include max(m) {
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+  }
+}
+
+.body {
+  @include min(m) {
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 2vw repeat(10, 1fr) 2vw;
+    width: 100%;
+  }
+
+  @include min(l) {
+    grid-gap: 3em 2em;
+    grid-template-columns: 7vw repeat(10, 1fr) 7vw;
+  }
 }

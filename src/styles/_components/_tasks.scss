@@ -1,0 +1,76 @@
+// Tasks..............Tasks section styles.
+
+.tasks {
+  @include min(m) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 25px;
+  }
+}
+
+.tasks__item {
+  position: relative;
+  background-color: $core-color-background;
+  margin-bottom: ($core-margin * 3);
+  padding-top: ($core-padding * 2);
+  padding-right: ($core-padding * 2);
+  padding-bottom: ($core-padding * 2);
+  padding-left: ($core-padding * 2);
+  border-radius: $core-border-radius;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include min(m) {
+    margin-bottom: 0;
+  }
+
+  @include min(l) {
+    @include transition-03(all);
+
+    &:hover {
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.tasks__item-link {
+  display: block;
+  color: $core-color-body;
+}
+
+.tasks__item-link--add {
+  @include flex(null, column, center, center);
+  height: 100%;
+
+  .tasks__title {
+    width: auto;
+    margin-bottom: $core-margin;
+  }
+}
+
+.tasks__title {
+  @include text(mars);
+  width: calc(100% - 30px);
+  margin-bottom: ($core-margin / 2);
+
+  @include min(m) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.tasks__sub-title {
+  display: block;
+  margin-top: 0;
+  margin-bottom: $core-margin;
+}
+
+.tasks__plus-icon {
+  width: 75px;
+  height: 75px;
+}

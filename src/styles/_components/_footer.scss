@@ -1,0 +1,58 @@
+// Footer.............Generic footer styles.
+
+.footer {
+  background-color: $core-color-foreground;
+  margin-top: ($core-margin * 3);
+  padding-top: ($core-padding * 3);
+  padding-bottom: ($core-padding * 3);
+
+  @include min(m) {
+    @include flex(wrap, row, space-between, null);
+    margin-top: 0;
+    padding-right: calc(2vw + 2em);
+    padding-left: calc(2vw + 2em);
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  @include min(l) {
+    padding-top: ($core-padding * 4.5);
+    padding-right: calc(7vw + 2em);
+    padding-bottom: ($core-padding * 4.5);
+    padding-left: calc(7vw + 2em);
+  }
+}
+
+.footer__copyright {
+  color: $core-color-neutral;
+  line-height: 1.3;
+}
+
+.footer__list {
+  margin-top: ($core-margin * 2);
+
+  @include min(m) {
+    margin-top: 0;
+  }
+}
+
+.footer__list-item {
+  margin-bottom: $core-margin;
+
+  @include min(l) {
+    display: inline-block;
+    margin-right: $core-margin;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.footer__list-link {
+  color: $core-color-secondary;
+  border-bottom-width: $core-border-width;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: $core-color-secondary;
+}

@@ -1,8 +1,8 @@
 {
   "ignoreFiles": [
     "../src/styles/main.scss",
-    "../src/styles/generic/*.scss",
-    "../src/styles/trumps/*.scss"
+    "../src/styles/_generic/*.scss",
+    "../src/styles/_trumps/*.scss"
   ],
   "plugins": "stylelint-selector-bem-pattern",
   "rules": {

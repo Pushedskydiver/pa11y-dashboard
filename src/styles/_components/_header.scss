@@ -1,0 +1,52 @@
+// Header.............Header styles.
+
+.header {
+  background-color: $core-color-background;
+  margin-bottom: ($core-margin * 3);
+  padding-top: ($core-padding * 2);
+  padding-bottom: ($core-padding * 2);
+
+  @include min(m) {
+    margin-bottom: 0;
+    padding-right: calc(2vw + 2em);
+    padding-left: calc(2vw + 2em);
+    grid-column: 1 / -1;
+  }
+
+  @include min(l) {
+    padding-right: calc(7vw + 2em);
+    padding-left: calc(7vw + 2em);
+  }
+}
+
+.header__inner {
+  @include flex(null, column, center, center);
+
+  @include min(m) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.header__title {
+  @include text(mars);
+  font-weight: $core-font-weight;
+  margin-top: ($core-margin * 2);
+  margin-bottom: 0;
+  text-align: center;
+
+  @include min(m) {
+    margin-top: 0;
+  }
+}
+
+.header__title-link {
+  color: inherit;
+}
+
+.main {
+  @include min(m) {
+    grid-column: 2 / 12;
+    grid-row: 2;
+  }
+}

@@ -4,6 +4,15 @@
 $buttons: (
   primary: (
     default: (
+      background-color: $core-color-brand,
+      color: $core-color-background
+    ),
+    hover: (
+      background-color: lighten($core-color-brand, 5%)
+    )
+  ),
+  secondary: (
+    default: (
       background-color: $core-color-secondary,
       color: $core-color-background
     ),
@@ -11,7 +20,7 @@ $buttons: (
       background-color: darken($core-color-secondary, 5%)
     )
   ),
-  secondary: (
+  tertiary: (
     default: (
       background-color: $core-color-tertiary,
       color: $core-color-background

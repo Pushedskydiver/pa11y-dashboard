@@ -1,0 +1,8 @@
+// Logo...............Site logo styles.
+
+.logo {
+  @include max(m) {
+    width: 130px;
+    height: auto;
+  }
+}

@@ -15,48 +15,54 @@ You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
-<ul class="tasks_l_ist">
+<ul class="tasks">
 
 {{#unless readonly}}
-    <li class="tasks__list-item tasks__list-item--add">
-        <a class="tasks__list-link" href="/new" data-role="add-task" data-test="add-task">
-            <p class="tasks__list-title">Add new URL</p>
-            <p class="tasks__list-plus">+</p>
+    <li class="tasks__item">
+        <a class="tasks__item-link tasks__item-link--add" href="/new" data-role="add-task" data-test="add-task">
+            <p class="tasks__title">Add new URL</p>
+            <svg class="tasks__plus-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-describedby="tasks__icon-title">
+                <title id="tasks__icon-title">Plus icon</title>
+                <path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"/>
+            </svg>
         </a>
     </li>
 {{/unless}}
 
-    {{#each tasks}}
-    	<li class="tasks__list-item" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
-            <a class="tasks__list-link" title="Details for URL {{simplify-url url}}" href="{{href}}">
-                <p class="tasks__list-title">{{name}}</p>
-                <p class="tasks__list-sub-title">({{standard}})</p>
-            {{#if lastResult}}
-                <ul class="stats__list">
-                {{#lastResult}}
-                    <li class="stats__list-item stats__list-item--danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stats__list-type">Errors</span></li>
-                    <li class="stats__list-item stats__list-item--warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stats__list-type">Warnings</span></li>
-                    <li class="stats__list-item stats__list-item--info" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stats__list-type">Notices</span></li>
-                {{/lastResult}}
-                </ul>
+{{#each tasks}}
+	<li class="tasks__item" data-test="task" data-role="task" data-keywords="{{lowercase name}} {{lowercase standard}} {{simplify-url url}}">
+        <a class="tasks__item-link" title="Details for URL {{simplify-url url}}" href="{{href}}">
+            <p class="tasks__title">{{name}}</p>
+            <small class="tasks__sub-title">({{standard}})</small>
+        {{#if lastResult}}
+            <ul class="stats">
+            {{#lastResult}}
+                <li class="stats__item stats__item--danger" title="Number of errors ({{count.error}})">{{count.error}}<span class="stats__type">Errors</span></li>
+                <li class="stats__item stats__item--warning" title="Number of warnings ({{count.warning}})">{{count.warning}}<span class="stats__type">Warnings</span></li>
+                <li class="stats__item stats__item--info" title="Number of notices ({{count.notice}})">{{count.notice}}<span class="stats__type">Notices</span></li>
+            {{/lastResult}}
+            </ul>
 
-                Last run {{date-format lastResult.date format="DD MMM YYYY"}}
-            {{else}}
-                <p class="results results--none">No results</p>
-            {{/if}}
-            </a>
-        {{#unless ../readonly}}
-            <div class="options">
-                <button type="button" class="options__button" data-toggle="dropdown"><span class="options__body">Options</span><span class="options__icon"></span></button>
+            <strong>Last run: {{date-format lastResult.date format="DD MMM YYYY"}}</strong>
+        {{else}}
+            <p class="results results--none">No results</p>
+        {{/if}}
+        </a>
+    {{#unless ../readonly}}
+        <div class="options">
+            <button type="button" class="options__button" data-toggle="dropdown">
+                <span class="hidden">Options</span>
+                <svg class="options__button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 15.516c1.922 0 3.516-1.594 3.516-3.516S13.922 8.484 12 8.484 8.484 10.078 8.484 12s1.594 3.516 3.516 3.516zm7.453-2.532l2.109 1.641c.188.141.234.422.094.656L19.64 18.75c-.141.234-.375.281-.609.188l-2.484-.984c-.516.375-1.078.75-1.688.984l-.375 2.625c-.047.234-.234.422-.469.422H9.984c-.234 0-.422-.188-.469-.422l-.375-2.625a6.145 6.145 0 0 1-1.688-.984l-2.484.984c-.234.094-.469.047-.609-.188l-2.016-3.469c-.141-.234-.094-.516.094-.656l2.109-1.641c-.047-.328-.047-.656-.047-.984s0-.656.047-.984L2.437 9.375c-.188-.141-.234-.422-.094-.656L4.359 5.25c.141-.234.375-.281.609-.188l2.484.984c.516-.375 1.078-.75 1.688-.984l.375-2.625c.047-.234.234-.422.469-.422h4.031c.234 0 .422.188.469.422l.375 2.625a6.145 6.145 0 0 1 1.688.984l2.484-.984c.234-.094.469-.047.609.188l2.016 3.469c.141.234.094.516-.094.656l-2.109 1.641c.047.328.047.656.047.984s0 .656-.047.984z"/></svg>
+            </button>
 
-                <ul class="options__list" role="menu">
-                    <li class="options__list-item"><a href="{{href}}/edit">Edit this task</a></li>
-                    <li class="options__list-item"><a href="{{href}}/delete">Delete this task</a></li>
-                    <li class="options__list-item--divider"></li>
-                    <li class="options__list-item"><a href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
-                </ul>
-            </div>
-        {{/unless}}
-    	</li>
-    {{/each}}
+            <ul class="options__list" role="menu">
+                <li class="options__list-item"><a class="options__list-link" href="{{href}}/edit">Edit this task</a></li>
+                <li class="options__list-item"><a class="options__list-link" href="{{href}}/delete">Delete this task</a></li>
+                <li class="options__list-item--divider"></li>
+                <li class="options__list-item"><a class="options__list-link" href="{{href}}/run" data-test="run-task">Run Pa11y</a></li>
+            </ul>
+        </div>
+    {{/unless}}
+	</li>
+{{/each}}
 </ul>

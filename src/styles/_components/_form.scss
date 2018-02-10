@@ -1,0 +1,276 @@
+// Form...............Generic form styles.
+
+.form {
+  position: relative;
+  background-color: $core-color-background;
+  margin-top: ($core-margin * 6);
+  padding-top: ($core-padding * 3.5);
+  padding-right: ($core-padding * 1.8);
+  padding-bottom: ($core-padding * 2.5);
+  padding-left: ($core-padding * 1.8);
+  border-radius: $core-border-radius;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+
+  @include min(m) {
+    padding-top: ($core-padding * 4.5);
+    padding-right: ($core-padding * 3.5);
+    padding-bottom: ($core-padding * 3.5);
+    padding-left: ($core-padding * 3.5);
+  }
+
+  @include min(l) {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+}
+
+.form__title {
+  position: absolute;
+  top: -($core-grid-unit * 2);
+  left: ($core-grid-unit * 2);
+  background-color: $core-color-brand;
+  color: $core-color-background;
+  margin-bottom: 0;
+  padding-top: $core-padding;
+  padding-right: ($core-padding * 1.5);
+  padding-bottom: $core-padding;
+  padding-left: ($core-padding * 1.5);
+  font-size: calc(1.7em + 0.5vw);
+  border-radius: $core-border-radius;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+  @include min(m) {
+    left: ($core-grid-unit * 3);
+  }
+}
+
+.form__fieldset {
+  max-width: 600px;
+  background-color: $core-color-background;
+  margin-top: ($core-margin * 1.5);
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  border: none;
+
+  @include min(m) {
+    margin-top: ($core-margin * 3);
+  }
+}
+
+.form__field {
+  position: relative;
+  margin-bottom: $core-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include min(m) {
+    margin-bottom: ($core-margin * 2);
+  }
+}
+
+.form__field-inner {
+  position: relative;
+}
+
+.form__label {
+  margin-top: 0;
+  color: darken($core-color-neutral, 30%);
+  font-size: calc(0.9em + 0.15vw);
+  cursor: pointer;
+
+  &:not(&--static) {
+    position: absolute;
+    bottom: ($core-grid-unit / 2);
+    left: 0;
+  }
+}
+
+.form__input-wrapper {
+  position: relative;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 0;
+  padding-top: ($core-padding / 2);
+  padding-bottom: ($core-padding / 2);
+  border: none;
+}
+
+.form__input {
+  border-bottom-width: $core-border-width;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: darken($core-color-neutral, 10%);
+
+  &:active,
+  &:focus {
+    + .form__input-border {
+      width: 100%;
+    }
+  }
+}
+
+.form__textarea {
+  @include flex(null, column, null, null);
+  @include transition-03(border-color);
+  padding-right: ($core-padding / 2);
+  padding-left: ($core-padding / 2);
+  border-width: $core-border-width;
+  border-style: $core-border-style;
+  border-color: darken($core-color-neutral, 10%);
+  resize: none;
+
+  &:active,
+  &:focus {
+    border-color: $core-color-brand;
+  }
+
+  @include min(m) {
+    padding-top: $core-padding;
+    padding-right: $core-padding;
+    padding-bottom: $core-padding;
+    padding-left: $core-padding;
+  }
+}
+
+.form__input-border {
+  @include transition-025(width);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: $core-color-brand;
+  transform: translateX(-50%);
+  z-index: z(alpha);
+}
+
+.form__select-wrapper {
+  position: relative;
+}
+
+.form__select {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  padding-left: 0;
+  font-size: $core-font-size;
+  line-height: $core-line-height;
+  border: none;
+  border-bottom-width: $core-border-width;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: darken($core-color-neutral, 10%);
+  cursor: pointer;
+  appearance: none;
+  z-index: z(alpha);
+
+  &:active,
+  &:focus {
+    + .form__input-border {
+      width: 100%;
+    }
+  }
+}
+
+.form__select-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.form__note {
+  display: block;
+  margin-top: ($core-margin / 2);
+  font-size: calc(0.8em + 0.15vw);
+}
+
+.form__standards {
+  height: 300px;
+  overflow: hidden;
+  overflow-y: auto;
+
+  .form__label {
+    display: block;
+    padding-left: ($core-padding * 2.5);
+    font-size: calc(0.9em + 0.15vw);
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+}
+
+.form__standards-title {
+  margin-top: 0;
+}
+
+.form__group {
+  margin-bottom: ($core-margin * 2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form__list-item {
+  position: relative;
+  margin-bottom: $core-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+
+  &:checked {
+    ~ .form__check .form__check-icon {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+.form__check {
+  @include flex(null, column, center, center);
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+  border-style: $core-border-style;
+  border-color: $core-color-body;
+}
+
+.form__check-icon {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: $core-color-brand;
+  stroke-width: 2;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  transition: stroke-dashoffset 0.3s ease-in;
+}
+
+.form__submit {
+  margin-top: ($core-margin * 2.5);
+
+  @include min(m) {
+    margin-top: ($core-margin * 3.5);
+  }
+}

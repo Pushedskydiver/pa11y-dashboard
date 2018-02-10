@@ -4,17 +4,20 @@ $core-grid-width: 1170px !default;
 $core-grid-unit: 12px !default;
 
 $core-color-brand: #6238bd !default;
-$core-color-secondary: #21d67f !default;
-$core-color-tertiary: #ff4c2f !default;
+$core-color-secondary: #63b967 !default;
+$core-color-tertiary: #e53935 !default;
 $core-color-background: #ffffff !default;
 $core-color-foreground: #000000 !default;
-$core-color-neutral: #d9d9d9 !default;
+$core-color-neutral: #eeeeee !default;
+$core-color-warning: #fb8c00 !default;
+$core-color-info: #00acc1 !default;
 $core-color-link: $core-color-brand !default;
 $core-color-body: rgba($core-color-foreground, 0.7) !default;
 
 $core-border-width: 2px !default;
 $core-border-style: solid !default;
 $core-border-color: $core-color-neutral !default;
+$core-border-radius: 4px !default;
 
 $core-font-family: 'Nunito Sans', sans-serif !default;
 $core-secondary-font-family: 'Ubuntu', sans-serif !default;

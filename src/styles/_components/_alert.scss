@@ -1,0 +1,30 @@
+// Alert..............Alert block styles.
+
+.alert {
+  margin-bottom: ($core-margin * 3);
+  padding-top: ($core-padding * 2);
+  padding-right: ($core-padding * 1.5);
+  padding-bottom: ($core-padding * 2);
+  padding-left: ($core-padding * 1.5);
+  border-radius: $core-border-radius;
+}
+
+.alert--info {
+  background-color: $core-color-secondary;
+  color: $core-color-background;
+
+  .alert__title {
+    color: $core-color-background;
+  }
+}
+
+.alert__title {
+  margin-bottom: ($core-margin / 2);
+}
+
+.alert__body {
+  &:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

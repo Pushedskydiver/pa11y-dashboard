@@ -1,4 +1,4 @@
-{{! 
+{{!
 This file is part of Pa11y Dashboard.
 
 Pa11y Dashboard is free software: you can redistribute it and/or modify
@@ -15,26 +15,22 @@ You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{#unless isHomePage}}
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<ol class="breadcrumb">
-					<li><a href="/">Dashboard</a></li>
-					{{#if isNewTaskPage}}
-						<li class="active">Add URL</li>
-					{{/if}}
-					{{#if isTaskPage}}
-					  <li class="active">{{task.name}}</li>
-					{{/if}}
-					{{#if isTaskSubPage}}
-						<li><a href="{{task.href}}">{{task.name}}</a></li>
-					{{/if}}
-					{{#if isResultPage}}
-						<li><a href="{{task.href}}">{{task.name}}</a></li>
-						<li class="active">Results for {{date-format mainResult.date format="DD MMM YYYY"}}</li>
-					{{/if}}
-				</ol>
-			</div>
-		</div>
-	</div>
+<div class="breadcrumbs container">
+    <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="/">Dashboard</a></li>
+    {{#if isNewTaskPage}}
+        <li class="breadcrumbs__item breadcrumbs__item--active">Add URL</li>
+    {{/if}}
+    {{#if isTaskPage}}
+        <li class="breadcrumbs__item breadcrumbs__item--active">{{task.name}}</li>
+    {{/if}}
+    {{#if isTaskSubPage}}
+        <li class="breadcrumbs__item"><a href="{{task.href}}">{{task.name}}</a></li>
+    {{/if}}
+    {{#if isResultPage}}
+        <li class="breadcrumbs__item"><a href="{{task.href}}">{{task.name}}</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--active">Results for {{date-format mainResult.date format="DD MMM YYYY"}}</li>
+    {{/if}}
+    </ol>
+</div>
 {{/unless}}

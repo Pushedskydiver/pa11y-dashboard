@@ -17,20 +17,27 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 <!DOCTYPE html>
 <html lang="{{lang}}" class="no-javascript">
 <head>
+    <!-- META TAGS  -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, user-scalable=yes, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="{{block "description"}}"/>
 
-	<script>
-		document.documentElement.className = document.documentElement.className.replace('no-javascript', 'javascript');
-	</script>
-	<meta charset="utf-8"/>
-	<title>{{block "title"}}</title>
-	<meta name="description" content="{{block "description"}}"/>
+    <title>{{block "title"}}</title>
 
-	{{#if noindex}}<meta name="robots" content="noindex"/>{{/if}}
+    <!-- PRELOAD FILES -->
+    <link rel="preload" href="/css/main.css?v={{version}}" as="style">
+    <link rel="preload" href="/fonts/ubuntu/ubuntu-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/ubuntu/ubuntu-medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/nunito-sans/nunito-sans-regular.woff2" as="font" type="font/woff2" media="(min-width: 62em)" crossorigin>
+    <link rel="preload" href="/fonts/nunito-sans/nunito-sans-semi-bold.woff2" as="font" type="font/woff2" media="(min-width: 62em)" crossorigin>
 
-    <!-- Manifest -->
-    <link rel="manifest" href="site.webmanifest">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="/css/main.css?v={{version}}">
 
-    <!-- Favicons -->
+    <!-- MANIFEST -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- FAVICONS -->
     <link rel="icon" href="/favicons/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="/favicons/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/favicons/favicon-48.png" sizes="48x48" type="image/png">
@@ -38,36 +45,26 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
     <link rel="icon" href="/favicons/favicon-192.png" sizes="192x192" type="image/png">
     <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
 
-	<!-- For mobile devices. -->
-	<meta name="viewport" content="width=device-width"/>
 
-	<link rel="stylesheet" href="/css/main.css?v={{version}}"/>
+    <script type="text/javascript">
+        document.documentElement.className = document.documentElement.className.replace('no-javascript', 'javascript');
+    </script>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="/js/vendor.bundle.js?v={{version}}" defer></script>
+	<script type="text/javascript" src="/js/common.bundle.js?v={{version}}" defer></script>
 
 </head>
 
-<body>
-	{{> page-header}}
+<body class="body">
+    {{> page-header}}
 
-	{{> breadcrumb}}
+    <main class="main container">
+        {{> breadcrumb}}
 
-	<div class="container">
-		{{#if readonly}}
-			<div class="row readonly-mode">
-		{{else}}
-			<div class="row">
-		{{/if}}
-			<section>
-				<div class="section" role="main">
-					{{{body}}}
-				</div>
-			</section>
-		</div>
-	</div>
+        {{{body}}}
+    </main>
 
-	{{> page-footer}}
-
-    <script type="text/javascript" src="/js/vendor.bundle.js?v={{version}}"></script>
-	<script type="text/javascript" src="/js/common.bundle.js?v={{version}}"></script>
-
+    {{> page-footer}}
 </body>
 </html>
