@@ -1,0 +1,36 @@
+// Task...............Task page styles.
+
+.task__title {
+  @include text(uranus);
+  margin-bottom: $core-margin;
+
+  @include min(m) {
+    margin-bottom: 0;
+  }
+}
+
+.task__url {
+  margin-top: 0;
+}
+
+.task__list {
+  @include flex(wrap, row, flex-start, null);
+}
+
+.task__list-item {
+  margin-bottom: 0;
+
+  &::after {
+    content: '|';
+    padding-left: ($core-padding / 2);
+    padding-right: ($core-padding / 2);
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+}
+
+.task__date {
+  margin-top: ($core-margin * 2.5);
+}

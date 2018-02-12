@@ -16,9 +16,8 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
 
 <h1 class="task__title">{{task.name}}</h1>
-<p class="task__body"><a href="{{task.url}}">{{simplify-url task.url}}</a><span> ({{task.standard}})</span></p>
+<p class="task__url"><a href="{{task.url}}">{{simplify-url task.url}}</a><span> ({{task.standard}})</span></p>
 
-<div class="run-details task-header clearfix">
 {{#unless readonly}}
     <ul class="task__list" role="menu">
         <li class="task__list-item"><a class="task__list-link" href="/{{task.id}}/edit">Edit this task</a></li>
@@ -28,12 +27,11 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{/unless}}
 
 {{#if mainResult}}
-    <div class="date">
+    <div class="task__date">
         Last run: <strong>{{date-format mainResult.date format="DD MMM YYYY"}}</strong>
     </div>
 {{else}}
-    <div class="date">Not yet run</div>
+    <div class="task__date">Not yet run</div>
 {{/if}}
-</div>
 
 <hr>

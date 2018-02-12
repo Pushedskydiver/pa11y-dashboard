@@ -42,10 +42,12 @@
 *  Filter.............Filter input styles.
 *  Footer.............Generic footer styles.
 *  Form...............Generic form styles.
+*  Graph..............Graph chart styles.
 *  Header.............Header styles.
 *  Logo...............Site logo styles.
 *  Options............Tasks options styles.
 *  Stats..............Tasks stats styles.
+*  Task...............Task page styles.
 *  Tasks..............Tasks section styles.
 *
 */
@@ -72,8 +74,10 @@
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_filter.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_footer.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_form.scss";
+@import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_graph.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_header.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_logo.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_options.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_stats.scss";
+@import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_task.scss";
 @import "/Users/alih2106/Desktop/pa11y-dashboard/src/styles/_components/_tasks.scss";

@@ -1,0 +1,73 @@
+// Graph..............Graph chart styles.
+
+.graph__options {
+  @include min(m) {
+    @include flex(wrap, row, space-between, center);
+  }
+}
+
+.graph__stats {
+  margin-bottom: ($core-margin * 3);
+
+  @include max(m) {
+    margin-top: ($core-margin * 2.5);
+  }
+}
+
+.graph__stat {
+  margin-bottom: $core-margin;
+  text-align: center;
+  border-radius: $core-border-radius;
+
+  &--error {
+    background-color: $core-color-tertiary;
+    color: $core-color-background;
+  }
+
+  &--warning {
+    background-color: $core-color-warning;
+    color: $core-color-background;
+  }
+
+  &--notice {
+    background-color: $core-color-info;
+    color: $core-color-background;
+  }
+}
+
+.graph__stat-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.graph__stat-label {
+  display: block;
+  padding-top: ($core-padding / 2);
+  padding-right: $core-padding;
+  padding-bottom: ($core-padding / 2);
+  padding-left: $core-padding;
+}
+
+.graph__stat-body {
+  display: inline-block;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: $core-color-background;
+    margin-right: $core-margin;
+    border-width: 1px;
+    border-style: $core-border-style;
+    border-color: $core-color-foreground;
+    vertical-align: middle;
+  }
+}
