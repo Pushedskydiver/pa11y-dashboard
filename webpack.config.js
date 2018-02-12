@@ -2,14 +2,13 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const glob = require('glob');
 const path = require('path');
-const vendorPath = path.resolve(__dirname, 'src/scripts/vendor');
 const plugin = require('./_config/plugins.json');
 
 module.exports = function(argv) {
   let webpackConfig = {
     entry : {
       common: glob.sync('./src/scripts/common/*.js'),
-      vendor: glob.sync('./src/scripts/vendor/*.js')
+      vendor: ['jquery', 'flot', 'flot-time', 'html2canvas']
     },
 
     output: {
@@ -44,17 +43,25 @@ module.exports = function(argv) {
         name: ['vendor'],
         minChunks: Infinity,
       }),
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      }),
       // new BundleAnalyzerPlugin()
     ],
 
     resolve: {
       alias: {
         // Make it so that 'require' finds the right file.
-        'cookies': path.join(vendorPath, 'cookies'),
-        'zenscroll': path.join(vendorPath, 'zenscroll-min'),
-        'lazyload': path.join(vendorPath, 'lazyload.min'),
-        'prism' : path.join(vendorPath, 'prism')
+        'jquery': 'node_modules/jquery/dist/jquery.min',
+        'flot': 'node_modules/flot/jquery.flot',
+        'flot-time': 'node_modules/flot/jquery.flot.time',
+        'html2canvas': 'node_modules/html2canvas/dist/html2canvas.min'
       },
+      modules: [
+        path.resolve('./'),
+        path.resolve('./node_modules')
+      ],
       extensions: ['.js']
     }
   };
@@ -67,7 +74,6 @@ module.exports = function(argv) {
       })
     );
   } else {
-    webpackConfig.entry.vendor = glob.sync('./src/scripts/vendor/**/*.js'),
     webpackConfig.plugins.push(
       new webpack.optimize.UglifyJsPlugin({
         minimize: false,

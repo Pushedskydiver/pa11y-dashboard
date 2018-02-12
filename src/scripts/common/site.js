@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
+import html2canvas from 'html2canvas'
+
 $(document).ready(function(){
 
     var data = {};
@@ -21,12 +23,11 @@ $(document).ready(function(){
     var taskListSelector = $('[data-role="task-list"] a');
 	var detailsCollapse = $('[data-role="details-collapse"]');
 	var contextPopover = $('[data-role="context-popover"]');
-	var ruleTooltip = $('[data-role="rule-tooltip"]');
     var toTopLinks = $('[data-role="top"]');
     var zoomResetButton = $('[data-role="zoom-reset"]');
     var graphContainer = $('[data-role="graph"]');
     var dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
-    var legend = graphContainer.parent('.graph-container').find('.dashedLegend');
+    var legend = graphContainer.parent('.graph').find('.dashedLegend');
 
     var graphOptions = {
         series: {
@@ -80,21 +81,6 @@ $(document).ready(function(){
 		$(this).toggleClass('btn_state_collapsed');
 	});
 
-	// Initialize context popovers
-	$(contextPopover).popover({
-		container: 'body',
-		placement: 'bottom'
-	});
-
-	$(document.body).click(function (e) {
-		$(contextPopover).each(function () {
-			if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-				if ($(this).data('bs.popover').tip().hasClass('in')) {
-					$(this).popover('toggle');
-				}
-			}
-		});
-	});
 
      // Back to top links
     toTopLinks.click( function(e){
@@ -132,8 +118,6 @@ $(document).ready(function(){
         plotGraphData();
     });
 
-    ruleTooltip.tooltip();
-
     // Function to animate sections
     function animateSection (sectionName, offset){
         $('html,body').animate({
@@ -144,7 +128,7 @@ $(document).ready(function(){
     // Standards list switcher for new task form
 	function switchStandardsList(el){
 		standardsList.hide();
-		chosenValue = (el.val());
+		var chosenValue = (el.val());
 		$('[data-attr="' + chosenValue + '"]').show();
 	}
 
@@ -204,7 +188,7 @@ $(document).ready(function(){
     }
 
 	function exportGraph() {
-		var exportBtn = $('.btn_action_export');
+		var exportBtn = $('[data-export-graph]');
 
 		exportBtn.click(function(e) {
 			e.preventDefault();
@@ -214,7 +198,9 @@ $(document).ready(function(){
 
 			fileName += '_' + date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 
-			html2canvas($('.graph').get(0), {
+      console.log($('.graph__chart').get(0));
+
+			html2canvas($('.graph__chart').get(0), {
 				onrendered: function (canvas) {
 					downloadFile(canvas.toDataURL('image/png'), fileName + '.png');
 				}
@@ -223,6 +209,8 @@ $(document).ready(function(){
 	}
 
 	function downloadFile(dataurl, filename) {
+    console.log(dataurl, 'dfdfdf', filename);
+
 		var link = document.createElement('a');
 		link.href = dataurl;
 		link.setAttribute('download', filename);
@@ -371,30 +359,5 @@ $(document).ready(function(){
 			initTaskFilter($(this));
 		});
 	}
-
-	// Extend public/js/vendor/bootstrap/js/collapse.js
-	// Add keyboard control for filters
-
-	$.fn.collapse.Constructor.prototype.keydown = function (e) {
-		var $this = $(this);
-		var k = e.which || e.keyCode;
-
-		if (!/(13|32)/.test(k)) {
-			return;
-		}
-		if (k === 13 || k === 32) {
-			$this.click();
-		}
-
-		e.preventDefault();
-		e.stopPropagation();
-	};
-
-	$('[data-toggle="collapse"]').attr('role', 'button').attr('tabindex', 0);
-	$(document).on(
-		'keydown.collapse.data-api',
-		'[data-toggle="collapse"]',
-		$.fn.collapse.Constructor.prototype.keydown
-	);
 
 });
