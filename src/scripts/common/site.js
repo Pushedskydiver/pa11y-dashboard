@@ -198,19 +198,13 @@ $(document).ready(function(){
 
 			fileName += '_' + date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 
-      console.log($('.graph__chart').get(0));
-
-			html2canvas($('.graph__chart').get(0), {
-				onrendered: function (canvas) {
-					downloadFile(canvas.toDataURL('image/png'), fileName + '.png');
-				}
+			html2canvas($('.graph__chart').get(0)).then(canvas => {
+        downloadFile(canvas.toDataURL('image/png'), fileName + '.png');
 			});
 		});
 	}
 
 	function downloadFile(dataurl, filename) {
-    console.log(dataurl, 'dfdfdf', filename);
-
 		var link = document.createElement('a');
 		link.href = dataurl;
 		link.setAttribute('download', filename);
