@@ -27,7 +27,7 @@ $(document).ready(() => {
 	const zoomResetButton = $('[data-role="zoom-reset"]');
 	const graphContainer = $('[data-role="graph"]');
 	const dateSelectDropdownMenu = $('[data-role="date-select-dropdown-menu"]');
-	const legend = graphContainer.parent('.graph').find('.dashedLegend');
+	const legend = graphContainer.parent('.graph__inner').find('.graph__legend');
 
 	const graphOptions = {
 		series: {
@@ -254,6 +254,9 @@ $(document).ready(() => {
           data-stat-type="${val.label.toLowerCase()}"
         />
         <label class="graph__stat-label" for="id${key}">
+          <span class="graph__stat-check">
+              <svg class="graph__stat-check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.172L19.594 5.578 21 6.984l-12 12-5.578-5.578L4.828 12z"/></svg>
+          </span>
           <span class="graph__stat-body">${val.label}</span>
         </label>
       </li>`
@@ -278,7 +281,7 @@ $(document).ready(() => {
 		if (labels.length && legend.length === 1) {
 			legend.find('tr').hide();
 			$.each(labels, (index, value) => {
-				$(`.legend${value}`).parents('tr').show();
+				$(`.graph__table-icon--${value.toLowerCase()}`).parents('tr').css('display', 'table-row');
 			});
 			legend.show();
 		} else {
@@ -291,13 +294,18 @@ $(document).ready(() => {
 	}
 
 	function showTooltip(x, y, contents) {
-		$(`<div data-role="tooltip" class="tooltip tooltip-graph in"><div class="tooltip-inner">${
-			contents
-		}</div></div>`).css({top: y + 5,
-			left: x + 5}).appendTo('body').fadeIn(200);
+		$(`<div data-role="tooltip" class="tooltip tooltip--visible">
+        <div class="tooltip-inner">${
+	contents
+}</div>
+      </div>`).css({
+			top: y + 5,
+			left: x + 5
+		}).appendTo('body').fadeIn(200);
 	}
 
 	let previousPoint = null;
+
 	graphContainer.bind('plothover', (event, pos, item) => {
 		if (item) {
 			if (previousPoint !== item.dataIndex) {

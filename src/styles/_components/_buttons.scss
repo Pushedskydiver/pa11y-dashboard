@@ -5,9 +5,9 @@
   display: block;
   margin-bottom: 0;
   padding-top: $core-padding;
-  padding-right: $core-padding;
+  padding-right: ($core-padding * 2);
   padding-bottom: $core-padding;
-  padding-left: $core-padding;
+  padding-left: ($core-padding * 2);
   font-size: calc(0.9em + 0.15vw);
   text-align: center;
   border-radius: $core-border-radius;
@@ -18,9 +18,7 @@
 
   @include min(l) {
     font-weight: $core-tertiary-font-weight;
-    padding-top: ($core-padding * 1.5);
     padding-right: ($core-padding * 2.5);
-    padding-bottom: ($core-padding * 1.5);
     padding-left: ($core-padding * 2.5);
   }
 }

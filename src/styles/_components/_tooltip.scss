@@ -1,0 +1,27 @@
+// Tooltip............Graph tooltip styles.
+
+.tooltip {
+  position: absolute;
+  display: block;
+  font-size: ($core-font-size * 0.8);
+  opacity: 0;
+  visibility: visible;
+  z-index: z(kilo);
+
+  &--visible {
+    opacity: 1;
+  }
+}
+
+.tooltip-inner {
+  max-width: 200px;
+  background-color: $core-color-body;
+  padding-top: ($core-padding / 3);
+  padding-right: $core-padding;
+  padding-bottom: ($core-padding / 3);
+  padding-left: $core-padding;
+  color: $core-color-background;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}

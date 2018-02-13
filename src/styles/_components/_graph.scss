@@ -1,8 +1,23 @@
 // Graph..............Graph chart styles.
 
+.graph {
+  margin-bottom: ($core-margin * 3);
+  padding-bottom: ($core-padding * 2.5);
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: $core-color-body;
+}
+
 .graph__options {
   @include min(m) {
     @include flex(wrap, row, space-between, center);
+    margin-bottom: ($core-margin * 3);
+  }
+}
+
+.graph__button {
+  @include max(m) {
+    width: 100%;
   }
 }
 
@@ -12,9 +27,16 @@
   @include max(m) {
     margin-top: ($core-margin * 2.5);
   }
+
+  @include min(m) {
+    @include flex(wrap, row, space-between, null);
+    margin-bottom: 0;
+  }
 }
 
 .graph__stat {
+  @include transition-03(background-color);
+  position: relative;
   margin-bottom: $core-margin;
   text-align: center;
   border-radius: $core-border-radius;
@@ -22,16 +44,37 @@
   &--error {
     background-color: $core-color-tertiary;
     color: $core-color-background;
+
+    &:hover {
+      background-color: darken($core-color-tertiary, 10%);
+    }
   }
 
   &--warning {
     background-color: $core-color-warning;
     color: $core-color-background;
+
+    &:hover {
+      background-color: darken($core-color-warning, 5%);
+    }
   }
 
   &--notice {
     background-color: $core-color-info;
     color: $core-color-background;
+
+    &:hover {
+      background-color: darken($core-color-info, 5%);
+    }
+  }
+
+  @include min(m) {
+    margin-bottom: 0;
+
+    &--warning {
+      margin-right: ($core-margin * 1.5);
+      margin-left: ($core-margin * 1.5);
+    }
   }
 }
 
@@ -44,30 +87,133 @@
   border: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
+
+  &:checked {
+    ~ .graph__stat-label .graph__stat-check .graph__stat-check-icon {
+      stroke-dashoffset: 0;
+    }
+  }
 }
 
 .graph__stat-label {
-  display: block;
+  @include flex(wrap, row, center, center);
   padding-top: ($core-padding / 2);
-  padding-right: $core-padding;
+  padding-right: ($core-padding * 1.5);
   padding-bottom: ($core-padding / 2);
-  padding-left: $core-padding;
+  padding-left: ($core-padding * 1.5);
+  cursor: pointer;
+}
+
+.graph__stat-check {
+  @include flex(null, column, center, center);
+  width: 20px;
+  height: 20px;
+  background-color: $core-color-background;
+  margin-right: $core-margin;
+  border-width: 1px;
+  border-style: $core-border-style;
+  border-color: $core-color-body;
+}
+
+.graph__stat-check-icon {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: $core-color-brand;
+  stroke-width: 2;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  transition: stroke-dashoffset 0.3s ease-in;
 }
 
 .graph__stat-body {
   display: inline-block;
   position: relative;
 
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: $core-color-background;
-    margin-right: $core-margin;
-    border-width: 1px;
-    border-style: $core-border-style;
-    border-color: $core-color-foreground;
-    vertical-align: middle;
+  @include min(m) {
+    flex: 1;
   }
+}
+
+.graph__inner {
+  position: relative;
+}
+
+.graph__chart {
+  width: 100%;
+  height: 300px;
+  margin-bottom: ($core-margin * 2);
+}
+
+.graph__chart .legend {
+  display: none;
+}
+
+.graph__legend {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: ($core-font-size * 0.8);
+  color: $core-color-body;
+  display: none;
+}
+
+.graph__legend-inner {
+  border-width: 1px;
+  border-style: $core-border-style;
+  border-color: $core-color-foreground;
+  padding-top: ($core-padding / 2);
+}
+
+.grpah__table-row {
+  display: none;
+}
+
+.graph__table-box > div:first-child {
+  border: 1px solid rgb(204, 204, 204);
+  padding: 3px;
+}
+
+.graph__table-icon div {
+  height: 0;
+  border-width: 3px 0 0;
+  border-top-style: solid;
+  overflow: hidden;
+}
+
+.graph__table-icon--errors div {
+  width: 25px;
+  border-top-color: rgb(216, 61, 45);
+}
+
+.graph__table-icon--warnings div {
+  width: 10px;
+  border-top-color: rgb(168, 103, 0);
+  float: left;
+}
+
+.graph__table-icon--warnings div:first-child {
+  margin-right: 5px;
+}
+
+.graph__table-icon--notices div {
+  width: 5px;
+  border-top-color: rgb(23, 123, 190);
+  float: left;
+  margin-left: 5px;
+}
+
+.graph__table-icon--notices div:first-child {
+  margin-left: 0;
+}
+
+.graph__table-box {
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.graph__table-label {
+  padding-right: 10px;
+  padding-bottom: 5px;
 }
