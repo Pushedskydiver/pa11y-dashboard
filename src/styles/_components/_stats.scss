@@ -15,28 +15,28 @@
   text-align: center;
   line-height: 1.3;
   flex: 1;
-}
 
-.stats__item--danger {
-  background-color: $core-color-tertiary;
-  color: $core-color-background;
-}
-
-.stats__item--warning {
-  background-color: $core-color-warning;
-  color: $core-color-background;
-  margin-right: ($core-margin / 2);
-  margin-left: ($core-margin / 2);
-
-  @include min(m) {
-    margin-right: ($core-margin * 0.8);
-    margin-left: ($core-margin * 0.8);
+  &--danger {
+    background-color: $core-color-tertiary;
+    color: $core-color-background;
   }
-}
 
-.stats__item--info {
-  background-color: $core-color-info;
-  color: $core-color-background;
+  &--warning {
+    background-color: $core-color-warning;
+    color: $core-color-background;
+    margin-right: ($core-margin / 2);
+    margin-left: ($core-margin / 2);
+
+    @include min(m) {
+      margin-right: ($core-margin * 0.8);
+      margin-left: ($core-margin * 0.8);
+    }
+  }
+
+  &--info {
+    background-color: $core-color-info;
+    color: $core-color-background;
+  }
 }
 
 .stats__type {

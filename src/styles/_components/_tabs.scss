@@ -1,0 +1,171 @@
+// Tabs...............Tabs sections styles
+
+.tabs {
+  @include flex(wrap, row, null, null);
+  border-bottom-width: 1px;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: $core-color-neutral;
+}
+
+.tabs__item {
+  margin-bottom: -1px;
+  border-top-right-radius: $core-border-radius;
+  border-top-left-radius: $core-border-radius;
+
+  &--active {
+    background-color: $core-color-background;
+    border-top-width: 1px;
+    border-top-style: $core-border-style;
+    border-top-color: $core-color-neutral;
+    border-right-width: 1px;
+    border-right-style: $core-border-style;
+    border-right-color: $core-color-neutral;
+    border-left-width: 1px;
+    border-left-style: $core-border-style;
+    border-left-color: $core-color-neutral;
+  }
+
+  @include max(l) {
+    width: 50%;
+  }
+}
+
+.tabs__link {
+  display: block;
+  padding-top: $core-padding;
+  padding-right: $core-padding;
+  padding-bottom: $core-padding;
+  padding-left: $core-padding;
+  text-align: center;
+
+  &--error {
+    color: $core-color-tertiary;
+  }
+
+  &--warning {
+    color: $core-color-warning;
+  }
+
+  &-notices {
+    color: $core-color-info;
+  }
+
+  &--ignore {
+    color: darken($core-color-neutral, 25%);
+  }
+}
+
+.tabs__content {
+  padding-top: ($core-padding * 2);
+  padding-right: ($core-padding * 1.5);
+  padding-bottom: ($core-padding * 2);
+  padding-left: ($core-padding * 1.5);
+  border-right-width: 1px;
+  border-right-style: $core-border-style;
+  border-right-color: $core-color-neutral;
+  border-bottom-width: 1px;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: $core-color-neutral;
+  border-left-width: 1px;
+  border-left-style: $core-border-style;
+  border-left-color: $core-color-neutral;
+
+
+}
+
+.tabs__pane {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.tabs__panel {
+  margin-bottom: ($core-margin * 2);
+}
+
+.tabs__panel-heading {
+  @include text(pluto);
+  display: block;
+  background-color: $core-color-neutral;
+  margin-bottom: 0;
+  padding-top: $core-padding;
+  padding-right: $core-padding;
+  padding-bottom: $core-padding;
+  padding-left: $core-padding;
+  border-top-right-radius: $core-border-radius;
+  border-top-left-radius: $core-border-radius;
+  word-wrap: break-word;
+
+  &--errors {
+    color: $core-color-tertiary;
+  }
+
+  &--warnings {
+    color: $core-color-warning;
+  }
+
+  &--notices {
+    color: $core-color-info;
+  }
+
+  &--ignore {
+    color: darken($core-color-neutral, 25%);
+  }
+}
+
+.tabs__panel-badge {
+  display: inline-block;
+  margin-left: $core-margin;
+  padding-top: ($core-padding / 3);
+  padding-right: ($core-padding / 2);
+  padding-bottom: ($core-padding / 3);
+  padding-left: ($core-padding / 2);
+  border-radius: $core-border-radius;
+  font-size: calc(0.75em + 0.15vw);
+  font-weight: $core-tertiary-font-weight;
+
+  &--errors {
+    background-color: $core-color-tertiary;
+    color: $core-color-background;
+  }
+
+  &--warnings {
+    background-color: $core-color-warning;
+    color: $core-color-background;
+  }
+
+  &--notices {
+    background-color: $core-color-info;
+    color: $core-color-background;
+  }
+
+  @include max(m) {
+    vertical-align: bottom;
+  }
+}
+
+.tabs__panel-content {
+  padding-top: ($core-padding * 1.5);
+  padding-right: $core-padding;
+  padding-bottom: ($core-padding * 1.5);
+  padding-left: $core-padding;
+  border-right-width: 1px;
+  border-right-style: $core-border-style;
+  border-right-color: $core-color-neutral;
+  border-bottom-width: 1px;
+  border-bottom-style: $core-border-style;
+  border-bottom-color: $core-color-neutral;
+  border-left-width: 1px;
+  border-left-style: $core-border-style;
+  border-left-color: $core-color-neutral;
+}
+
+.tabs__panel-body {
+  margin-top: 0;
+}
+
+.tabs__detials {
+  display: none;
+}

@@ -57,12 +57,13 @@ $headings: (
     margin-bottom: $core-margin
   ),
   pluto: (
-    color: $core-color-body,
-    font-size: calc(1em + 0.5vw),
-    line-height: 1.1,
+    color: $core-color-foreground,
+    font-family: $core-secondary-font-family,
+    font-size: calc(0.9em + 0.5vw),
+    line-height: $core-secondary-line-height,
     font-weight: $core-font-weight,
     margin-top: 0,
-    margin-bottom: ($core-margin * 2)
+    margin-bottom: $core-margin
   ),
   earth: (
     color: $core-color-body,

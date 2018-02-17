@@ -10,6 +10,10 @@
   color: $core-color-body;
   margin-bottom: 0;
 
+  &--active {
+    color: $core-color-body;
+  }
+
   &::after {
     content: '/';
     padding-left: ($core-padding / 2);
@@ -18,10 +22,6 @@
   &:last-child::after {
     display: none;
   }
-}
-
-.breadcrumbs__item--active {
-  color: $core-color-body;
 }
 
 .breadcrumbs__link {

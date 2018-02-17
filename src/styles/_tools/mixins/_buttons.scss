@@ -28,6 +28,15 @@ $buttons: (
     hover: (
       background-color: darken($core-color-tertiary, 5%)
     )
+  ),
+  neutral: (
+    default: (
+      background-color: darken($core-color-neutral, 15%),
+      color: $core-color-foreground
+    ),
+    hover: (
+      background-color: darken($core-color-neutral, 20%)
+    )
   )
 );
 

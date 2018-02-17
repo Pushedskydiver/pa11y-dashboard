@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0 auto;
-  background-color: $core-color-neutral;
+  background-color: darken($core-color-background, 5%);
   color: $core-color-body;
   font-family: Helvetica, sans-serif;
   font-size: calc(#{$core-font-size} + 0.1vw);
@@ -59,7 +59,6 @@ h5 {
 
 a {
   color: $core-color-brand;
-  text-decoration: none;
 
   @include min(l) {
     @include transition-03(all);

@@ -17,11 +17,11 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
 <article class="result">
     <aside class="result__sidebar">
-        <a href="{{mainResult.hrefCsv}}" class="result__button button button button--primary" data-test="download-csv">Download CSV</a>
-        <a href="{{mainResult.hrefJson}}" class="result__button button button button--primary" data-test="download-json">Download JSON</a>
+        <a href="{{mainResult.hrefCsv}}" class="result__button button button button--neutral" data-test="download-csv">Download CSV</a>
+        <a href="{{mainResult.hrefJson}}" class="result__button button button button--neutral" data-test="download-json">Download JSON</a>
 
         <div class="result__dates">
-            <h3 class="result__heading">{{date-format task.lastResult.date format="DD MMM YYYY"}}</h3>
+            <h3 class="result__heading result__heading--dates">{{date-format task.lastResult.date format="DD MMM YYYY"}}</h3>
             <p class="result__body">Select a date to show stats for:</p>
             <ul role="navigation" class="result__dates-list">
             {{#results}}
@@ -38,17 +38,17 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
     <div class="result__content">
         <ul class="tabs" role="tablist">
-            <li class="tabs__item tabs__item--error tabs__item--active" role="presentation">
-                <a class="tabs__link" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">Errors ( {{mainResult.count.error}} )</a>
+            <li class="tabs__item tabs__item--active" role="presentation">
+                <a class="tabs__link tabs__link--error" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">Errors ({{mainResult.count.error}})</a>
             </li>
-            <li class="tabs__item tabs__item--warning" role="presentation">
-                <a class="tabs__link" id="warnings" href="#warnings-list" aria-controls="warnings-list" role="tab" data-toggle="tab" data-test="task-warnings">Warnings ( {{mainResult.count.warning}} )</a>
+            <li class="tabs__item" role="presentation">
+                <a class="tabs__link tabs__link--warning" id="warnings" href="#warnings-list" aria-controls="warnings-list" role="tab" data-toggle="tab" data-test="task-warnings">Warnings ({{mainResult.count.warning}})</a>
             </li>
-            <li class="tabs__item tabs__item--notices" role="presentation">
-                <a class="tabs__link" id="notices" href="#notices-list" aria-controls="notices-list" role="tab" data-toggle="tab" data-test="task-notices">Notices ( {{mainResult.count.notice}} )</a>
+            <li class="tabs__item" role="presentation">
+                <a class="tabs__link tabs__link--notices" id="notices" href="#notices-list" aria-controls="notices-list" role="tab" data-toggle="tab" data-test="task-notices">Notices ({{mainResult.count.notice}})</a>
             </li>
-            <li class="tabs__item tabs__item--ignore" role="presentation">
-                <a class="tabs__link" id="ignore" href="#ignore-list" aria-controls="ignore-list" role="tab" data-toggle="tab">Ignored rules ( {{mainResult.ignore.length}} )</a>
+            <li class="tabs__item" role="presentation">
+                <a class="tabs__link tabs__link--ignore" id="ignore" href="#ignore-list" aria-controls="ignore-list" role="tab" data-toggle="tab">Ignored rules ({{mainResult.ignore.length}})</a>
             </li>
         </ul>
 
@@ -58,9 +58,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                 {{#mainResult.errors}}
                 <div class="tabs__panel tabs__panel--errors">
                     <div class="tabs__panel-inner">
-                        <span class="tabs__panel-heading">
+                        <span class="tabs__panel-heading tabs__panel-heading--errors">
                             {{code}}
-                            <span class="tabs__panel-badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
+                            <span class="tabs__panel-badge tabs__panel-badge--errors" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
                         </span>
 
                         {{#unless readonly}}
@@ -111,14 +111,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
             {{/if}}
             </div>
 
-            <div id="warnings-list" role="tabpanel" class="tabs__pane tabs__pane--active">
+            <div id="warnings-list" role="tabpanel" class="tabs__pane">
             {{#if mainResult.count.warning}}
                 {{#mainResult.warnings}}
                 <div class="tabs__panel tabs__panel--warnings">
                     <div class="tabs__panel-inner">
-                        <span class="tabs__panel-heading">
+                        <span class="tabs__panel-heading tabs__panel-heading--warnings">
                             {{code}}
-                            <span class="tabs__panel-badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
+                            <span class="tabs__panel-badge tabs__panel-badge--warnings" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
                         </span>
 
                         {{#unless readonly}}
@@ -133,13 +133,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
                     <div class="tabs__panel-content">
                         <p class="tabs__panel-body">{{message}}</p>
-                        <a class="tabs__panel-link" href="#warning-index-{{@index}}">Show details</a>
+                        <a class="tabs__panel-link" href="#warning-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">Show details</a>
 
                         <div class="tabs__detials" id="warning-index-{{@index}}">
                         {{#if solutions.length}}
-                            <span class="tabs__detials-heading" id="error-solutions">Solutions:</span>
+                            <span class="tabs__detials-heading" id="warning-solutions">Solutions:</span>
 
-                            <ul class="tabs__detials-list" role="list" aria-labelledby="error-solutions">
+                            <ul class="tabs__detials-list" role="list" aria-labelledby="warning-solutions">
                             {{#each solutions}}
                                 <li class="tabs__detials-list-item" role="listitem"><a class="tabs__detials-list-link tabs__detials-list-link" href="{{url}}" target="_blank">{{title}}</a></li>
                             {{/each}}
@@ -147,9 +147,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                         {{/if}}
 
                         {{#if items.length}}
-                            <span class="tabs__detials-heading" id="error-selectors">Selectors:</span>
+                            <span class="tabs__detials-heading" id="warning-selectors">Selectors:</span>
 
-                            <ul class="tabs__detials-list" role="list" aria-labelledby="error-selectors">
+                            <ul class="tabs__detials-list" role="list" aria-labelledby="warning-selectors">
                             {{#each items}}
                                 <li class="tabs__detials-list-item" role="listitem">
                                     <span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
@@ -162,163 +162,100 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                         </div>
                     </div>
                 </div>
-                {{/mainResult.errors}}
+                {{/mainResult.warnings}}
                 <a class="tabs__link" href="#top" data-role="top">Back to top</a>
             {{else}}
-                <p class="tabs__body">Well done! You have 0 errors.</p>
+                <p class="tabs__body">Well done! You have 0 warnings.</p>
             {{/if}}
             </div>
 
-    		<div id="warnings-list" role="tabpanel" class="tab-pane tasks-list fade">
-    			{{#if mainResult.count.warning}}
-    				{{#mainResult.warnings}}
-    					<div class="panel panel-default task task_type_warning">
+            <div id="notices-list" role="tabpanel" class="tabs__pane">
+            {{#if mainResult.count.notice}}
+                {{#mainResult.notices}}
+                <div class="tabs__panel tabs__panel--warnings">
+                    <div class="tabs__panel-inner">
+                        <span class="tabs__panel-heading tabs__panel-heading--notices">
+                            {{code}}
+                            <span class="tabs__panel-badge tabs__panel-badge--notices" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
+                        </span>
 
+                        {{#unless readonly}}
+                            {{#if ../../isTaskPage}}
+                                <form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
+                                    <input type="hidden" name="rule" value="{{code}}"/>
+                                    <input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
+                                </form>
+                            {{/if}}
+                        {{/unless}}
+                    </div>
 
-    						<div class="panel-body">
-    							<span class="text">{{message}}</span>
-    							<span class="btn btn-xs btn-link link btn-details" dzata-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">details</span>
+                    <div class="tabs__panel-content">
+                        <p class="tabs__panel-body">{{message}}</p>
+                        <a class="tabs__panel-link" href="#notice-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">Show details</a>
 
-    							<div class="task-details collapse" id="warning-index-{{@index}}">
-    								{{#if solutions.length}}
-    									<div class="subtitle" id="warning-solutions">Solutions:</div>
-    									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="warning-solutions">
-    										{{#each solutions}}
-    											<li class="list-unstyled__item" role="listitem">
-    												<a class="link" href="{{url}}" target="_blank">
-    													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
-    												</a>
-    											</li>
-    										{{/each}}
-    									</ul>
-    								{{/if}}
+                        <div class="tabs__detials" id="notice-index-{{@index}}">
+                        {{#if solutions.length}}
+                            <span class="tabs__detials-heading" id="notice-solutions">Solutions:</span>
 
-    								{{#if items.length}}
-    									<div class="subtitle" id="warning-selectors">Selectors:</div>
-    									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="warning-selectors">
-    										{{#each items}}
-    											<li class="list-unstyled__item" role="listitem">
-    												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
-    													<code class="code">{{selector}}</code>
-    												</span>
-    											</li>
-    										{{/each}}
-    									</ul>
-    								{{/if}}
-    							</div>
-    						</div>
-    					</div>
-    				{{/mainResult.warnings}}
-    				<div class="to-top">
-    					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
-    				</div>
-    			{{else}}
-    				<div class="text">Well done! You have 0 warnings. <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true"></span></div>
-    			{{/if}}
-    		</div>
+                            <ul class="tabs__detials-list" role="list" aria-labelledby="notice-solutions">
+                            {{#each solutions}}
+                                <li class="tabs__detials-list-item" role="listitem"><a class="tabs__detials-list-link tabs__detials-list-link" href="{{url}}" target="_blank">{{title}}</a></li>
+                            {{/each}}
+                            </ul>
+                        {{/if}}
 
-    		<div id="notices-list" role="tabpanel" class="tab-pane tasks-list fade">
-    			{{#if mainResult.count.notice}}
-    				{{#mainResult.notices}}
-    					<div class="panel panel-default task task_type_notice">
-    						<div class="panel-heading">
-    							<div class="row">
-    								<div class="col-md-9 col-sm-9 col-xs-8">
-    									<span class="rule-name">{{code}}&ensp;
-    										<span class="badge" title="{{count}} selector(s)" data-toggle="tooltip" data-role="rule-tooltip">{{count}}</span>
-    									</span>
-    								</div>
-    								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
-    									{{#unless readonly}}
-    										{{#if ../../isTaskPage}}
-    											<form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
-    												<input type="hidden" name="rule" value="{{code}}"/>
-    												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Ignore rule"/>
-    											</form>
-    										{{/if}}
-    									{{/unless}}
-    								</div>
-    							</div>
-    						</div>
+                        {{#if items.length}}
+                            <span class="tabs__detials-heading" id="notice-selectors">Selectors:</span>
 
-    						<div class="panel-body">
-    							<span class="text">{{message}}</span>
-    							<span class="btn btn-xs btn-link link btn-details" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">details</span>
+                            <ul class="tabs__detials-list" role="list" aria-labelledby="notice-selectors">
+                            {{#each items}}
+                                <li class="tabs__detials-list-item" role="listitem">
+                                    <span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
+                                        <code class="code">{{selector}}</code>
+                                    </span>
+                                </li>
+                            {{/each}}
+                            </ul>
+                        {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/mainResult.notices}}
+                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+            {{else}}
+                <p class="tabs__body">Well done! You have 0 warnings.</p>
+            {{/if}}
+            </div>
 
-    							<div class="task-details collapse" id="notice-index-{{@index}}">
-    								{{#if solutions.length}}
-    									<div class="subtitle" id="notice-solutions">Solutions:</div>
-    									<ul class="list-unstyled solutions-list" role="list" aria-labelledby="notice-solutions">
-    										{{#each solutions}}
-    											<li class="list-unstyled__item" role="listitem">
-    												<a class="link" href="{{url}}" target="_blank">
-    													<span class="glyphicon glyphicon-share" aria-hidden="true"></span>&nbsp;{{title}}
-    												</a>
-    											</li>
-    										{{/each}}
-    									</ul>
-    								{{/if}}
+            <div id="ignore-list" role="tabpanel" class="tabs__pane">
+            {{#if mainResult.ignore.length}}
+                {{#mainResult.ignore}}
+                <div class="tabs__panel tabs__panel--ignore">
+                    <div class="tabs__panel-inner">
+                        <span class="tabs__panel-heading tabs__panel-heading--ignore">{name}}</span>
 
-    								{{#if items.length}}
-    									<div class="subtitle" id="notice-selectors">Selectors:</div>
-    									<ul class="list-unstyled selectors-list" role="list" aria-labelledby="notice-selectors">
-    										{{#each items}}
-    											<li class="list-unstyled__item" role="listitem">
-    												<span title="Context" data-role="context-popover" data-toggle="popover" data-content="{{context}}">
-    													<code class="code">{{selector}}</code>
-    												</span>
-    											</li>
-    										{{/each}}
-    									</ul>
-    								{{/if}}
-    							</div>
-    						</div>
-    					</div>
-    				{{/mainResult.notices}}
-    				<div class="to-top">
-    					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
-    				</div>
-    			{{else}}
-    				<div class="text">Well done! You have 0 notices. <span class="glyphicon glyphicon-ok pull-right" aria-hidden="true"></span></div>
-    			{{/if}}
-    		</div>
+                        {{#unless readonly}}
+                            {{#if ../../isTaskPage}}
+                                <form class="ignore-form" action="{{../../../task.hrefIgnore}}" method="post">
+                                    <input type="hidden" name="rule" value="{{name}}"/>
+                                    <input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
+                                </form>
+                            {{/if}}
+                        {{/unless}}
+                    </div>
 
-    		<div id="ignore-list" role="tabpanel" class="tab-pane tasks-list fade">
-    			{{#if mainResult.ignore.length}}
-    				{{#mainResult.ignore}}
-    					<div class="panel panel-default task task_type_ignore">
-    						<div class="panel-heading">
-    							<div class="row">
-    								<div class="col-md-9 col-sm-9 col-xs-8">
-    									<span class="rule-name">{{name}}</span>
-    								</div>
-    								<div class="col-md-3 col-sm-3 col-xs-4 task-actions">
-    									{{#unless readonly}}
-    										{{#if ../../isTaskPage}}
-    											<form class="ignore-form" action="{{../../../task.hrefUnignore}}" method="post">
-    												<input type="hidden" name="rule" value="{{name}}"/>
-    												<input type="submit" role="link" class="btn btn-link btn-sm link" value="Unignore rule"/>
-    											</form>
-    										{{/if}}
-    									{{/unless}}
-    								</div>
-    							</div>
-    						</div>
-
-    						<div class="panel-body">
-    							{{#if description}}
-    								<span class="text">{{description}}</span>
-    							{{/if}}
-    						</div>
-    					</div>
-    				{{/mainResult.ignore}}
-    				<div class="to-top">
-    					<a class="link" href="#top" data-role="top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>Back to top</a>
-    				</div>
-    			{{else}}
-    				<div class="text">You have no ignored rules.</div>
-    			{{/if}}
-    		</div>
-    	</div>
+                    <div class="tabs__panel-content">
+                    {{#if description}}
+                        <p class="tabs__panel-body">{{description}}</p>
+                    {{/if}}
+                    </div>
+                </div>
+                {{/mainResult.ignore}}
+                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+            {{else}}
+                <p class="tabs__body">You have no ignored rules.</p>
+            {{/if}}
+            </div>
+        </div>
     </div>
 </article>

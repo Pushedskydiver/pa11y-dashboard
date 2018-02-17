@@ -1,0 +1,85 @@
+// Result.............Result section styles
+
+.result {
+  margin-top: ($core-margin * 2.5);
+
+  @include min(l) {
+    @include flex(wrap, row, space-between, null);
+  }
+}
+
+.result__sidebar {
+  @include min(l) {
+    width: 27%;
+    align-self: flex-start;
+  }
+}
+
+.result__button {
+  display: block;
+  width: 100%;
+
+  &:first-child {
+    margin-bottom: ($core-margin * 1.5);
+  }
+}
+
+.result__dates {
+  background-color: $core-color-brand;
+  color: $core-color-background;
+  margin-top: ($core-margin * 2.5);
+  margin-bottom: ($core-margin * 2.5);
+  padding-top: ($core-padding * 2.5);
+  padding-right: ($core-padding * 2);
+  padding-bottom: ($core-padding * 2.5);
+  padding-left: ($core-padding * 2);
+}
+
+.result__heading {
+  @include text(mars);
+
+  &--dates {
+    color: $core-color-background;
+    margin-bottom: ($core-margin / 2);
+  }
+}
+
+.result__body {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.result__dates-list {
+  margin-top: ($core-margin * 1.5);
+}
+
+.result__dates-list-item {
+  margin-bottom: ($core-margin / 2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.result__dates-list-link {
+  color: $core-color-background;
+}
+
+.result__browser {
+  background-color: $core-color-background;
+  margin-bottom: ($core-margin * 2.5);
+  padding-top: ($core-padding * 2.5);
+  padding-right: ($core-padding * 2);
+  padding-bottom: ($core-padding * 2.5);
+  padding-left: ($core-padding * 2);
+}
+
+.result__content {
+  background-color: $core-color-background;
+  border-top-right-radius: $core-border-radius;
+  border-top-left-radius: $core-border-radius;
+
+  @include min(l) {
+    width: 70%;
+  }
+}

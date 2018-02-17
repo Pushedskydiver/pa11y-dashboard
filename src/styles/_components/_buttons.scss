@@ -10,6 +10,7 @@
   padding-left: ($core-padding * 2);
   font-size: calc(0.9em + 0.15vw);
   text-align: center;
+  text-decoration: none;
   border-radius: $core-border-radius;
 
   @include min(m) {
@@ -17,9 +18,10 @@
   }
 
   @include min(l) {
-    font-weight: $core-tertiary-font-weight;
     padding-right: ($core-padding * 2.5);
     padding-left: ($core-padding * 2.5);
+    font-weight: $core-tertiary-font-weight;
+    cursor: pointer;
   }
 }
 
@@ -33,4 +35,8 @@
 
 .button--tertiary {
   @include button(tertiary);
+}
+
+.button--neutral {
+  @include button(neutral);
 }
