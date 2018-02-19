@@ -7,8 +7,8 @@ const plugin = require('./_config/plugins.json');
 module.exports = function(argv) {
   let webpackConfig = {
     entry : {
-      common: glob.sync('./src/scripts/common/*.js'),
-      vendor: ['jquery', 'flot', 'flot-time', 'flot-selection', 'html2canvas']
+      common: path.resolve(__dirname, 'src/scripts/main.js'),
+      vendor: ['jquery', 'flot', 'flot-time', 'flot-selection']
     },
 
     output: {
