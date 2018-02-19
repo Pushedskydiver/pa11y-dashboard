@@ -8,7 +8,7 @@ module.exports = function(argv) {
   let webpackConfig = {
     entry : {
       common: glob.sync('./src/scripts/common/*.js'),
-      vendor: ['jquery', 'flot', 'flot-time', 'html2canvas']
+      vendor: ['jquery', 'flot', 'flot-time', 'flot-selection', 'html2canvas']
     },
 
     output: {
@@ -56,6 +56,7 @@ module.exports = function(argv) {
         'jquery': 'node_modules/jquery/dist/jquery.min',
         'flot': 'node_modules/flot/jquery.flot',
         'flot-time': 'node_modules/flot/jquery.flot.time',
+        'flot-selection': 'node_modules/flot/jquery.flot.selection',
         'html2canvas': 'node_modules/html2canvas/dist/html2canvas.min'
       },
       modules: [

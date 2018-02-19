@@ -25,15 +25,15 @@ if (fs.existsSync(jsonPath)) {
 	module.exports = require(jsPath);
 } else {
 	module.exports = {
-		port: Number(env('PORT', '4000')),
+		port: Number(env('PORT', process.env.PORT || '4000')),
 		noindex: env('NOINDEX', 'true') === 'true',
-		readonly: env('READONLY', 'true') === 'true',
+		readonly: env('READONLY', process.env.READONLY) === 'true',
 
 		webservice: env('WEBSERVICE_URL', {
 			database: env('WEBSERVICE_DATABASE', process.env.MONGO_DB),
 			host: env('WEBSERVICE_HOST', '0.0.0.0'),
 			port: Number(env('WEBSERVICE_PORT', '3000')),
-			cron: env('WEBSERVICE_CRON', '0 0 * * *')
+			cron: env('WEBSERVICE_CRON', process.env.WEBSERVICE_CRON)
 		})
 	};
 }

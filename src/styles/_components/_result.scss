@@ -1,4 +1,4 @@
-// Result.............Result section styles
+// Result.............Result section styles.
 
 .result {
   margin-top: ($core-margin * 2.5);
@@ -10,7 +10,7 @@
 
 .result__sidebar {
   @include min(l) {
-    width: 27%;
+    width: 28%;
     align-self: flex-start;
   }
 }

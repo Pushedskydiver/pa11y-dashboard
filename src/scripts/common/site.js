@@ -16,7 +16,6 @@
 import html2canvas from 'html2canvas';
 
 $(document).ready(() => {
-
 	const data = {};
 	const standardsList = $('[data-role="standards-list"]');
 	const standardSelect = $('[data-role="new-task-select"]');
@@ -31,16 +30,25 @@ $(document).ready(() => {
 
 	const graphOptions = {
 		series: {
-			dashes: {show: false,
-				lineWidth: 3},
-			lines: {show: true},
-			points: {show: true},
+			dashes: {
+				show: false,
+				lineWidth: 3
+			},
+			lines: {
+				show: true
+			},
+			points: {
+				show: true
+			},
 			hoverable: true
 		},
 		xaxis: {
 			mode: 'time',
 			tickLength: 0,
-			minTickSize: [1, 'day'],
+			minTickSize: [
+				1,
+				'day'
+			],
 			timeformat: '%d %b'
 		},
 		yaxis: {
@@ -78,10 +86,17 @@ $(document).ready(() => {
 	}
 
 	// Update details button title by click
-	detailsCollapse.click(function() {
-		$(this).toggleClass('btn_state_collapsed');
-	});
+	detailsCollapse.click(element => {
+		const collapseLink = element.currentTarget;
 
+		element.preventDefault();
+
+		$(collapseLink).toggleClass('tabs__panel-link--collapsed');
+
+		$(collapseLink).hasClass('tabs__panel-link--collapsed') ?
+			$(collapseLink).text('Hide details') :
+			$(collapseLink).text('Show details');
+	});
 
 	// Back to top links
 	toTopLinks.click(e => {
@@ -100,9 +115,11 @@ $(document).ready(() => {
 		switchStandardsList($(this));
 	});
 
-	taskListSelector.click(function(e) {
+	taskListSelector.click(e => {
 		e.preventDefault();
-		target = $(this).attr('href');
+
+		const target = $(this).attr('href');
+
 		animateSection($(target), -25);
 		if (!$(target).hasClass('showing')) {
 			$(target).click();
@@ -121,6 +138,7 @@ $(document).ready(() => {
 
 	// Function to animate sections
 	function animateSection(sectionName, offset) {
+		console.log(sectionName);
 		$('html,body').animate({
 			scrollTop: $(sectionName).offset().top + offset
 		}, 750);
@@ -228,7 +246,7 @@ $(document).ready(() => {
 			ranges.yaxis.to = ranges.yaxis.from + 0.00001;
 		}
 		// Do the zooming
-		plot = $.plot(graphContainer, getData(ranges.xaxis.from, ranges.xaxis.to),
+		const plot = $.plot(graphContainer, getData(ranges.xaxis.from, ranges.xaxis.to),
 			$.extend(true, {}, graphOptions, {
 				xaxis: {min: ranges.xaxis.from,
 					max: ranges.xaxis.to},
@@ -349,14 +367,14 @@ $(document).ready(() => {
 
 	function filterTasks(tasks, query) {
 		query = $.trim(query.replace(/[^a-z0-9\s]+/gi, ''));
-		tasks.removeClass('hidden');
+		tasks.removeClass('tasks__item--hidden');
 		if (/^\s*$/.test(query)) {
 			return;
 		}
 		const queryRegExp = new RegExp(`(${query.replace(/\s+/gi, '|')})`, 'i');
 		tasks.filter(function() {
 			return !queryRegExp.test($(this).data('keywords'));
-		}).addClass('hidden');
+		}).addClass('tasks__item--hidden');
 	}
 
 	const taskLists = $('[data-control=task-list]');

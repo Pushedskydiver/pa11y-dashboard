@@ -36,7 +36,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         </div>
     </aside>
 
-    <div class="result__content">
+    <div class="result__content" id="top">
         <ul class="tabs" role="tablist">
             <li class="tabs__item tabs__item--active" role="presentation">
                 <a class="tabs__link tabs__link--error" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">Errors ({{mainResult.count.error}})</a>
@@ -75,7 +75,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
                     <div class="tabs__panel-content">
                         <p class="tabs__panel-body">{{message}}</p>
-                        <a class="tabs__panel-link" href="#error-index-{{@index}}">Show details</a>
+                        <a class="tabs__panel-link" href="#error-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">Show details</a>
 
                         <div class="tabs__detials" id="error-index-{{@index}}">
                         {{#if solutions.length}}
@@ -105,7 +105,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.errors}}
-                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 errors.</p>
             {{/if}}
@@ -163,7 +163,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.warnings}}
-                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 warnings.</p>
             {{/if}}
@@ -221,7 +221,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.notices}}
-                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 warnings.</p>
             {{/if}}
@@ -251,7 +251,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.ignore}}
-                <a class="tabs__link" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
             {{else}}
                 <p class="tabs__body">You have no ignored rules.</p>
             {{/if}}

@@ -19,6 +19,13 @@
   border-radius: $core-border-radius;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 
+  &--hidden {
+    height: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -40,6 +47,7 @@
 .tasks__item-link {
   display: block;
   color: $core-color-body;
+  text-decoration: none;
 }
 
 .tasks__item-link--add {

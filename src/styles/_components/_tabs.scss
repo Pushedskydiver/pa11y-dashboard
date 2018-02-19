@@ -1,4 +1,4 @@
-// Tabs...............Tabs sections styles
+// Tabs...............Tabs sections styles.
 
 .tabs {
   @include flex(wrap, row, null, null);
@@ -46,7 +46,7 @@
     color: $core-color-warning;
   }
 
-  &-notices {
+  &--notices {
     color: $core-color-info;
   }
 
@@ -166,6 +166,25 @@
   margin-top: 0;
 }
 
+.tabs__panel-link {
+  &--collapsed ~ .tabs__detials {
+    display: block;
+  }
+}
+
 .tabs__detials {
   display: none;
+  padding-top: $core-padding;
+}
+
+.tabs__detials-heading {
+  @include text(earth);
+  display: block;
+  margin-top: $core-margin;
+  margin-bottom: $core-margin;
+}
+
+.tabs__detials-list-item {
+  margin-bottom: ($core-margin * 1.5);
+  line-height: $core-secondary-line-height;
 }
