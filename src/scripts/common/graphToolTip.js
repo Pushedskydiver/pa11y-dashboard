@@ -11,7 +11,7 @@ module.exports = (function() {
 	}
 
 	function plotOnHover() {
-		graph.graph.bind('plothover', (event, pos, item) => {
+		graph.obj.graph.bind('plothover', (event, pos, item) => {
 			if (item) {
 				if (previousPoint !== item.dataIndex) {
 					previousPoint = item.dataIndex;
@@ -32,7 +32,7 @@ module.exports = (function() {
 	}
 
 	function init() {
-		if (previousPoint !== null) {
+		if (graph.obj.graph !== null) {
 			plotOnHover();
 		}
 	}

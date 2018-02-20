@@ -5,7 +5,7 @@ module.exports = (function() {
   const exportBtn = $('[data-export-graph]');
 
 	function storeDatum(element, label) {
-		$.each(element.find('[data-label]'), () => {
+		$.each(element.find('[data-label]'), function() {
 			const type = $(this).attr('data-label');
 			const value = $(this).html();
 
@@ -24,6 +24,7 @@ module.exports = (function() {
 	function getGraphData() {
     $($('[data-role="url-stats"]').get().reverse()).each(function() {
       const el = $(this);
+
       storeDatum(el, getXAxisLabel(el));
     });
 	}
@@ -46,11 +47,7 @@ module.exports = (function() {
 	function init() {
     if (graph.obj.graph !== null) {
       graph.obj.zoomResetButton.click(resetGraph);
-
-      $.each(graph.obj.graph, () => {
-    		getGraphData();
-    		plotGraphData();
-    	});
+      $.each(graph.obj.graph, plotGraph);
     }
 	}
 

@@ -18,8 +18,6 @@ module.exports = (function() {
 	}
 
   obj.exportGraph = element => {
-    console.log(element, 'element');
-
 		element.preventDefault();
 
 		let fileName = $('h1').text().toLowerCase().split(' ').join('_');

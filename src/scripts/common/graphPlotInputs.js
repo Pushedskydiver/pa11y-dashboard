@@ -28,7 +28,7 @@ module.exports = (function() {
 		const data = [];
 		const labels = [];
 
-		choiceContainer.find('input:checked').each(() => {
+		choiceContainer.find('input:checked').each(function() {
 			const key = $(this).attr('name');
 			if (key && datasets[key]) {
 				labels.push(datasets[key].label);
