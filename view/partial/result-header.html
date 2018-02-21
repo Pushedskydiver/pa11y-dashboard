@@ -14,9 +14,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 }}
-<section class="result">
+<section class="task">
+    <div class="task__inner">
+        <h1 class="task__title">{{task.name}}</h1>
+        <p class="task__url">{{simplify-url task.url}} <small class="task__standard">({{task.standard}})</small></p>
+    </div>
+
     <time class="result__date">{{date-format mainResult.date format="DD MMM YYYY"}}</time>
 
-    <h1 class="result__title">{{task.name}}</h1>
-    <p class="result__url">{{simplify-url task.url}}<span class="h5"> ({{task.standard}})</span></p>
+    <hr>
 </section>

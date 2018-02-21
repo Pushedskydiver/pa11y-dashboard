@@ -18,42 +18,42 @@ const chalk = require('chalk');
 const config = require('./config');
 
 process.on('SIGINT', () => {
-	console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
-	process.exit();
+  console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
+  process.exit();
 });
 
 require('./app')(config, (error, app) => {
-	if (error) {
-		console.error(error.stack);
-		process.exit(1);
-	}
+  if (error) {
+    console.error(error.stack);
+    process.exit(1);
+  }
 
-	console.log('');
-	console.log(chalk.underline.magenta('Pa11y Dashboard started'));
-	console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
-	console.log(chalk.grey('uri:  %s'), app.address);
+  console.log('');
+  console.log(chalk.underline.magenta('Pa11y Dashboard started'));
+  console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
+  console.log(chalk.grey('uri:  %s'), app.address);
 
-	app.on('route-error', error => {
-		const stack = (error.stack ? error.stack.split('\n') : [error.message]);
-		const msg = chalk.red(stack.shift());
-		console.error('');
-		console.error(msg);
-		console.error(chalk.grey(stack.join('\n')));
-	});
+  app.on('route-error', error => {
+    const stack = (error.stack ? error.stack.split('\n') : [error.message]);
+    const msg = chalk.red(stack.shift());
+    console.error('');
+    console.error(msg);
+    console.error(chalk.grey(stack.join('\n')));
+  });
 
-	// Start the webservice if required
-	if (typeof config.webservice === 'object') {
-		require('pa11y-webservice')(config.webservice, (error, webservice) => {
-			if (error) {
-				console.error(error.stack);
-				process.exit(1);
-			}
+  // Start the webservice if required
+  if (typeof config.webservice === 'object') {
+    require('pa11y-webservice')(config.webservice, (error, webservice) => {
+      if (error) {
+        console.error(error.stack);
+        process.exit(1);
+      }
 
-			console.log('');
-			console.log(chalk.underline.cyan('Pa11y Webservice started'));
-			console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
-			console.log(chalk.grey('uri:  %s'), webservice.server.info.uri);
-		});
-	}
+      console.log('');
+      console.log(chalk.underline.cyan('Pa11y Webservice started'));
+      console.log(chalk.grey('mode: %s'), process.env.NODE_ENV);
+      console.log(chalk.grey('uri:  %s'), webservice.server.info.uri);
+    });
+  }
 
 });

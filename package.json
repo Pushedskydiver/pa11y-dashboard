@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "npm run production",
-		"heroku-prebuild": "yarn && yarn global add pm2 && gulp default --prod",
+    "heroku-prebuild": "yarn && yarn global add pm2 && gulp default --prod",
     "production": "cross-env NODE_ENV=production pm2 start node index.js -i max",
     "dev": "cross-env NODE_ENV=development node index.js",
     "test": "make ci"

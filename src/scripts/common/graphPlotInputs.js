@@ -1,14 +1,14 @@
 import graph from './graphConfig';
 
 module.exports = (function() {
-	const choiceContainer = $('[data-role="series-checkboxes"]');
-	const datasets = graph.obj.getData();
+  const choiceContainer = $('[data-role="series-checkboxes"]');
+  const datasets = graph.obj.getData();
 
-	function createGraphStatCheckboxes(key, val) {
-		const lowerCaseValue = val.label.substring(0, val.label.length - 1).toLowerCase();
+  function createGraphStatCheckboxes(key, val) {
+    const lowerCaseValue = val.label.substring(0, val.label.length - 1).toLowerCase();
 
-		choiceContainer.append(
-			`<li class="graph__stat graph__stat--${lowerCaseValue}">
+    choiceContainer.append(
+      `<li class="graph__stat graph__stat--${lowerCaseValue}">
         <input class="graph__stat-input" type="checkbox"
           name="${key}"
           id="id${key}"
@@ -21,47 +21,48 @@ module.exports = (function() {
           <span class="graph__stat-body">${val.label}</span>
         </label>
       </li>`
-		);
-	}
+    );
+  }
 
-	function plotAccordingToChoices() {
-		const data = [];
-		const labels = [];
+  function plotAccordingToChoices() {
+    const data = [];
+    const labels = [];
 
-		choiceContainer.find('input:checked').each(function() {
-			const key = $(this).attr('name');
-			if (key && datasets[key]) {
-				labels.push(datasets[key].label);
-				data.push(datasets[key]);
-			}
-		});
+    choiceContainer.find('input:checked').each((index, value) => {
+      const key = $(value).attr('name');
 
-		if (labels.length && graph.obj.legend.length === 1) {
-			graph.obj.legend.find('tr').hide();
+      if (key && datasets[key]) {
+        labels.push(datasets[key].label);
+        data.push(datasets[key]);
+      }
+    });
 
-			$.each(labels, (index, value) => {
-				$(`.graph__table-icon--${value.toLowerCase()}`).parents('tr').css('display', 'table-row');
-			});
+    if (labels.length && graph.obj.legend.length === 1) {
+      graph.obj.legend.find('tr').hide();
 
-			graph.obj.legend.show();
-		} else {
-			graph.obj.legend.hide();
-		}
+      $.each(labels, (index, value) => {
+        $(`.graph__table-icon--${value.toLowerCase()}`).parents('tr').css('display', 'table-row');
+      });
 
-		if (data.length > -1) {
-			$.plot(graph.obj.graph, data, graph.obj.graphOptions);
-		}
-	}
+      graph.obj.legend.show();
+    } else {
+      graph.obj.legend.hide();
+    }
 
-	function init() {
-		if (choiceContainer !== null) {
-			$.each(datasets, createGraphStatCheckboxes);
-			choiceContainer.find('input').click(plotAccordingToChoices);
-			choiceContainer.find('[data-stat-type=errors]').click();
-		}
-	}
+    if (data.length > -1) {
+      $.plot(graph.obj.graph, data, graph.obj.graphOptions);
+    }
+  }
 
-	return {
-		init: init
-	};
+  function init() {
+    if (choiceContainer !== null) {
+      $.each(datasets, createGraphStatCheckboxes);
+      choiceContainer.find('input').click(plotAccordingToChoices);
+      choiceContainer.find('[data-stat-type=errors]').click();
+    }
+  }
+
+  return {
+    init
+  };
 }());

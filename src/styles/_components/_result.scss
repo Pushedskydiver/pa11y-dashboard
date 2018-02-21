@@ -33,6 +33,10 @@
   padding-right: ($core-padding * 2);
   padding-bottom: ($core-padding * 2.5);
   padding-left: ($core-padding * 2);
+
+  .result--single & {
+    display: none;
+  }
 }
 
 .result__heading {
@@ -72,6 +76,10 @@
   padding-right: ($core-padding * 2);
   padding-bottom: ($core-padding * 2.5);
   padding-left: ($core-padding * 2);
+
+  .result--single & {
+    margin-top: ($core-margin * 2.5);
+  }
 }
 
 .result__content {

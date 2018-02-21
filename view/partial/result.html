@@ -39,21 +39,21 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
     <div class="result__content" id="top">
         <ul class="tabs" role="tablist">
             <li class="tabs__item tabs__item--active" role="presentation">
-                <a class="tabs__link tabs__link--error" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-toggle="tab" data-test="task-errors">Errors ({{mainResult.count.error}})</a>
+                <a class="tabs__link tabs__link--error" id="errors" href="#errors-list" aria-controls="errors-list" role="tab" data-tab data-test="task-errors">Errors ({{mainResult.count.error}})</a>
             </li>
             <li class="tabs__item" role="presentation">
-                <a class="tabs__link tabs__link--warning" id="warnings" href="#warnings-list" aria-controls="warnings-list" role="tab" data-toggle="tab" data-test="task-warnings">Warnings ({{mainResult.count.warning}})</a>
+                <a class="tabs__link tabs__link--warning" id="warnings" href="#warnings-list" aria-controls="warnings-list" role="tab" data-tab data-test="task-warnings">Warnings ({{mainResult.count.warning}})</a>
             </li>
             <li class="tabs__item" role="presentation">
-                <a class="tabs__link tabs__link--notices" id="notices" href="#notices-list" aria-controls="notices-list" role="tab" data-toggle="tab" data-test="task-notices">Notices ({{mainResult.count.notice}})</a>
+                <a class="tabs__link tabs__link--notices" id="notices" href="#notices-list" aria-controls="notices-list" role="tab" data-tab data-test="task-notices">Notices ({{mainResult.count.notice}})</a>
             </li>
             <li class="tabs__item" role="presentation">
-                <a class="tabs__link tabs__link--ignore" id="ignore" href="#ignore-list" aria-controls="ignore-list" role="tab" data-toggle="tab">Ignored rules ({{mainResult.ignore.length}})</a>
+                <a class="tabs__link tabs__link--ignore" id="ignore" href="#ignore-list" aria-controls="ignore-list" role="tab" data-tab>Ignored rules ({{mainResult.ignore.length}})</a>
             </li>
         </ul>
 
-        <div class="tabs__content">
-            <div id="errors-list" role="tabpanel" class="tabs__pane tabs__pane--active">
+        <div class="tabs__content" data-tabs-content>
+            <div id="errors-list" role="tabpanel" data-tab-panel class="tabs__pane tabs__pane--active">
             {{#if mainResult.count.error}}
                 {{#mainResult.errors}}
                 <div class="tabs__panel tabs__panel--errors">
@@ -75,7 +75,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
                     <div class="tabs__panel-content">
                         <p class="tabs__panel-body">{{message}}</p>
-                        <a class="tabs__panel-link" href="#error-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">Show details</a>
+                        <a class="tabs__panel-link" href="#error-index-{{@index}}" data-details-collapse data-toggle="collapse" data-target="#error-index-{{@index}}" aria-expanded="false" aria-controls="error-index-{{@index}}">Show details</a>
 
                         <div class="tabs__detials" id="error-index-{{@index}}">
                         {{#if solutions.length}}
@@ -105,13 +105,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.errors}}
-                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-back-to-top>Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 errors.</p>
             {{/if}}
             </div>
 
-            <div id="warnings-list" role="tabpanel" class="tabs__pane">
+            <div id="warnings-list" role="tabpanel" data-tab-panel class="tabs__pane">
             {{#if mainResult.count.warning}}
                 {{#mainResult.warnings}}
                 <div class="tabs__panel tabs__panel--warnings">
@@ -133,7 +133,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
                     <div class="tabs__panel-content">
                         <p class="tabs__panel-body">{{message}}</p>
-                        <a class="tabs__panel-link" href="#warning-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">Show details</a>
+                        <a class="tabs__panel-link" href="#warning-index-{{@index}}" data-details-collapse data-toggle="collapse" data-target="#warning-index-{{@index}}" aria-expanded="false" aria-controls="warning-index-{{@index}}">Show details</a>
 
                         <div class="tabs__detials" id="warning-index-{{@index}}">
                         {{#if solutions.length}}
@@ -163,13 +163,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.warnings}}
-                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-back-to-top>Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 warnings.</p>
             {{/if}}
             </div>
 
-            <div id="notices-list" role="tabpanel" class="tabs__pane">
+            <div id="notices-list" role="tabpanel" data-tab-panel class="tabs__pane">
             {{#if mainResult.count.notice}}
                 {{#mainResult.notices}}
                 <div class="tabs__panel tabs__panel--warnings">
@@ -191,7 +191,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
                     <div class="tabs__panel-content">
                         <p class="tabs__panel-body">{{message}}</p>
-                        <a class="tabs__panel-link" href="#notice-index-{{@index}}" data-role="details-collapse" data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">Show details</a>
+                        <a class="tabs__panel-link" href="#notice-index-{{@index}}" data-details-collapse data-toggle="collapse" data-target="#notice-index-{{@index}}" aria-expanded="false" aria-controls="notice-index-{{@index}}">Show details</a>
 
                         <div class="tabs__detials" id="notice-index-{{@index}}">
                         {{#if solutions.length}}
@@ -221,13 +221,13 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.notices}}
-                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-back-to-top>Back to top</a>
             {{else}}
                 <p class="tabs__body">Well done! You have 0 warnings.</p>
             {{/if}}
             </div>
 
-            <div id="ignore-list" role="tabpanel" class="tabs__pane">
+            <div id="ignore-list" role="tabpanel" data-tab-panel class="tabs__pane">
             {{#if mainResult.ignore.length}}
                 {{#mainResult.ignore}}
                 <div class="tabs__panel tabs__panel--ignore">
@@ -251,7 +251,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                 </div>
                 {{/mainResult.ignore}}
-                <a class="tabs__to-top" href="#top" data-role="top">Back to top</a>
+                <a class="tabs__to-top" href="#top" data-back-to-top>Back to top</a>
             {{else}}
                 <p class="tabs__body">You have no ignored rules.</p>
             {{/if}}

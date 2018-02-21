@@ -9,19 +9,26 @@
 
 .tabs__item {
   margin-bottom: -1px;
+  border-top-width: 1px;
+  border-top-style: $core-border-style;
+  border-top-color: $core-color-background;
+  border-right-width: 1px;
+  border-right-style: $core-border-style;
+  border-right-color: $core-color-background;
+  border-left-width: 1px;
+  border-left-style: $core-border-style;
+  border-left-color: $core-color-background;
   border-top-right-radius: $core-border-radius;
   border-top-left-radius: $core-border-radius;
 
+  &:last-child {
+    margin-bottom: -1px;
+  }
+
   &--active {
     background-color: $core-color-background;
-    border-top-width: 1px;
-    border-top-style: $core-border-style;
     border-top-color: $core-color-neutral;
-    border-right-width: 1px;
-    border-right-style: $core-border-style;
     border-right-color: $core-color-neutral;
-    border-left-width: 1px;
-    border-left-style: $core-border-style;
     border-left-color: $core-color-neutral;
   }
 
@@ -74,10 +81,12 @@
 }
 
 .tabs__pane {
-  display: none;
+  .tabs__content--active & {
+    display: none;
 
-  &--active {
-    display: block;
+    &--active {
+      display: block;
+    }
   }
 }
 
@@ -167,14 +176,19 @@
 }
 
 .tabs__panel-link {
-  &--collapsed ~ .tabs__detials {
-    display: block;
+  .tabs__content--active & {
+    &--collapsed ~ .tabs__detials {
+      display: block;
+    }
   }
 }
 
 .tabs__detials {
-  display: none;
   padding-top: $core-padding;
+
+  .tabs__content--active & {
+    display: none;
+  }
 }
 
 .tabs__detials-heading {

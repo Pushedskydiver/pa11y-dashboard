@@ -2,42 +2,42 @@ import html2canvas from 'html2canvas';
 
 module.exports = (function() {
   const obj = {};
-	const graph = $('[data-role="graph"]');
-	const exportBtn = $('[data-export-graph]');
+  const graph = $('[data-role="graph"]');
+  const exportBtn = $('[data-export-graph]');
 
-	function downloadFile(dataurl, filename) {
-		const link = document.createElement('a');
-		const clickEvent = document.createEvent('MouseEvents');
+  function downloadFile(dataurl, filename) {
+    const link = document.createElement('a');
+    const clickEvent = document.createEvent('MouseEvents');
 
-		link.href = dataurl;
-		link.setAttribute('download', filename);
-		clickEvent.initEvent('click', false, true);
-		link.dispatchEvent(clickEvent);
+    link.href = dataurl;
+    link.setAttribute('download', filename);
+    clickEvent.initEvent('click', false, true);
+    link.dispatchEvent(clickEvent);
 
-		return false;
-	}
+    return false;
+  }
 
   obj.exportGraph = element => {
-		element.preventDefault();
+    element.preventDefault();
 
-		let fileName = $('h1').text().toLowerCase().split(' ').join('_');
-		const date = new Date();
+    let fileName = $('h1').text().toLowerCase().split(' ').join('_');
+    const date = new Date();
 
-		fileName += `_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    fileName += `_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 
-		html2canvas($(graph).get(0)).then(canvas => {
-			downloadFile(canvas.toDataURL('image/png'), `${fileName}.png`);
-		});
-	}
+    html2canvas($(graph).get(0)).then(canvas => {
+      downloadFile(canvas.toDataURL('image/png'), `${fileName}.png`);
+    });
+  };
 
-	function init() {
-		if (graph !== null) {
-			exportBtn.click(obj.exportGraph);
-		}
-	}
+  function init() {
+    if (graph !== null) {
+      exportBtn.click(obj.exportGraph);
+    }
+  }
 
-	return {
+  return {
     obj,
-		init: init
-	};
+    init
+  };
 }());
