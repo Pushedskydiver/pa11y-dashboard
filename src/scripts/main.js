@@ -9,6 +9,7 @@
     require('./common/graphPlotInputs.js').init();
     require('./common/graphToolTip.js').init();
     require('./common/graphExport.js').init();
+    require('./common/options.js').init();
     require('./common/tabs.js').init();
     require('./common/taskFilter.js').init();
   });

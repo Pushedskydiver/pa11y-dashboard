@@ -3,15 +3,15 @@ module.exports = (function() {
   const tabsDetails = $('[data-details-collapse]');
 
   function toggleDetails(element) {
-    const collapseLink = element.currentTarget;
+    const {currentTarget} = element;
 
     element.preventDefault();
 
-    $(collapseLink).toggleClass('tabs__panel-link--collapsed');
+    $(currentTarget).toggleClass('tabs__panel-link--collapsed');
 
-    $(collapseLink).hasClass('tabs__panel-link--collapsed') ?
-      $(collapseLink).text('Hide details') :
-      $(collapseLink).text('Show details');
+    $(currentTarget).hasClass('tabs__panel-link--collapsed') ?
+      $(currentTarget).text('Hide details') :
+      $(currentTarget).text('Show details');
   }
 
   function init() {

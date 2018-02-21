@@ -2,14 +2,13 @@ module.exports = (function() {
   const tabs = $('[data-tab]');
 
   function showTabPanel(element) {
-    const currentTab = element;
-    const currentTabTarget = currentTab.target;
-    const currentTabParent = $(currentTabTarget).parent();
+    const {target} = element;
+    const currentTabParent = $(target).parent();
     const tabPanels = $('[data-tab-panel]');
-    const activePanelId = $(currentTabTarget).attr('href');
+    const activePanelId = $(target).attr('href');
     const activePanel = $(activePanelId);
 
-    currentTab.preventDefault();
+    element.preventDefault();
 
     tabs.parent().removeClass('tabs__item--active');
     tabPanels.removeClass('tabs__pane--active');

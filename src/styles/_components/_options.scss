@@ -32,6 +32,10 @@
   padding-bottom: ($core-margin * 2);
   padding-left: ($core-margin * 1.5);
   text-align: left;
+
+  .options__button--active ~ & {
+    display: block;
+  }
 }
 
 .options__list-item {
