@@ -1,14 +1,19 @@
 language: node_js
-node_js:
-- 8.9.4
-cache:
-  yarn: true
-  directories: "— node_modules"
+matrix:
+  include:
+  - node_js: '4'
+  - node_js: '5'
+  - node_js: '6'
 branches:
   only:
   - master
 services:
 - mongodb
+before_script:
+- cp config/test.sample.json config/test.json
+- NODE_ENV=test node index.js &
+- sleep 5
+script: make ci
 deploy:
   api_key:
-    secure: X/13WHAqPfbE649DVarkG1m2aI2kPOwePBA8YkL8ul7JxNKJVIT76uhvI1S5/9tz/nt4WqhGkIjK6ngS7YUYoQfS7Zef0H0DXwidY/DFAr74Tt7jso//DDJyt98LAUvYzjfb/pGryUQwrVTutStopE6RGgpJFMSw29dzpSgSbzMROKUysll55qcIHrhMKwoOT1Dh/UJQNLAThwl+gDLG1AD5mf2lt6lltd+Kn/4j6ZaCc+2JV74TgU7vg0DWUT0oywLsB5X5RRZ3SjFwpsSJR5a/JzmqTgPZ0KXC0clBNg6A+sR5HkWAp81Qj9EoESj00x7zc5YImcKpt+SsDQjlZ5/DYBwMKrBpc1RY27mpfPNThyWzkYdWflfzBDfbB7eWzJf96h6gIkw4YWXyv/1ZasJBXPrmFS7APYEFoMkdg+cSXWsTLcZUb1+ujILTJEdY4CQKm7zJ1HlNGBWH4yF/BCQlaZCLX5riIH3M2ze0fR6BWzMsP3Imxac/vIR38JOnyKP4AOzMVaMBksw6hsUBMvxDmwsvFLBMqrBckXt+Q6ijvSV0inleElpCdIJ+F8irxwYrImMPqGYja7eYe2sl1jx4AnvCGgUZyEug96yBxcA8yG6uykOE2dnTQjaB9qoONFVxMlQV/Zvtck0e89Ny7CcwtE9UMzsQ0sUdnoEYZOk=
+    secure: TSomP1kWoE0f7gyQE0Sx3MOI/N3Z02s6bZn6Sgrezwp7c458NwLG0uWhTa+ho5BuaEKPdHyu7DKd22rM+/9wW9xjkl0XTN+SCO4gd5p1j4SA7TDyEbZ5FprmTJvVDz+DI9amFi5AfCenwDk1PRqRzeiL173uimlyrgjJB63mk3MoLuIOEUU7DwpN0SRVTE2LImO8VIOf20qrWXMZULk2Rer1ZV4bEoW5EpxKHef1dSnuzeCPH0j/XcAX5TrVD1Tyx4Ll8LFyMRZgcnlN4hzCPDzuhXMWF8FBMF1VyBd3vnpHhzyGeG5OCOHYjCYEWZACfDAUZDLgy8RUcu2w/XuQKcDCzZDK7RsqUNzcyv0h9F6o9R6GSKITCLSLff/qnFpNhDK4m+zusllwDUo9GI+wS7KpwLC1oBGLdhqXa2xsxLSmzIx70T6O9FDGdxj30t0ggBqLeEIB8uCifdjbMVSpok/xvI5jLYDP1kLwRzabnEQ/hDqoQjhb05ldE1o4JwBjCSjJdZYNP9llhp6Ykun5FaT7B27Rx27YxqpeOxG8zMLZ2iTOGjYgsSJXewbSX41h9mceUT/f5OF6XX2pfy4UbbTYKJw8OJTl3WttDF0IgYBwyu4cmetocfu2gEu2hWOO+ZlLEAbKBvfe3Yni5s2F7rj8+2j/73Oq/fS4cC8Bh1A=

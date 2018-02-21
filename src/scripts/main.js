@@ -4,6 +4,7 @@
   $(document).ready(() => {
     require('./common/backToTop.js').init();
     require('./common/detailsCollapse.js').init();
+    require('./common/form.js').init();
     require('./common/graph.js').init();
     require('./common/graphPlot.js').init();
     require('./common/graphPlotInputs.js').init();

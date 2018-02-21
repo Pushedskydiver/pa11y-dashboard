@@ -36,7 +36,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label" for="new-task-name">Name</label>
             <div class="form__input-wrapper">
-                <input class="form__input" id="new-task-name" type="text" name="name" value="{{task.name}}" required/>
+                <input class="form__input" data-input id="new-task-name" type="text" name="name" value="{{task.name}}" required/>
                 <span class="form__input-border"></span>
             </div>
         </div>
@@ -44,7 +44,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label" for="new-task-url">URL</label>
             <div class="form__input-wrapper">
-                <input class="form__input" id="new-task-url" type="url" pattern="https?:\/\/.+" name="url" value="{{task.url}}" required/>
+                <input class="form__input" data-input id="new-task-url" type="url" pattern="https?:\/\/.+" name="url" value="{{task.url}}" required/>
                 <span class="form__input-border"></span>
             </div>
         </div>
@@ -73,7 +73,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label" for="new-task-timeout">Timeout (Milliseconds)</label>
             <div class="form__input-wrapper">
-                <input class="form__input" id="new-task-timeout" type="text" name="timeout" value="{{task.timeout}}"/>
+                <input class="form__input" data-input id="new-task-timeout" type="text" name="timeout" value="{{task.timeout}}"/>
                 <span class="form__input-border"></span>
             </div>
         </div>
@@ -82,7 +82,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
             <div class="form__field-inner">
                 <label class="form__label" for="new-task-wait">Wait (Milliseconds)</label>
                 <div class="form__input-wrapper">
-                    <input class="form__input" id="new-task-wait" type="text" name="wait" value="{{task.wait}}"/>
+                    <input class="form__input" data-input id="new-task-wait" type="text" name="wait" value="{{task.wait}}"/>
                     <span class="form__input-border"></span>
                 </div>
             </div>
@@ -98,7 +98,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
                 Task Actions
                 (<a class="form__link" href="https://github.com/pa11y/pa11y#actions">See Pa11y documentation</a>)
             </label>
-            <textarea class="form__textarea" id="new-task-actions" name="actions" aria-describedby="action-detail">{{task.actions}}</textarea>
+            <textarea class="form__textarea" data-input id="new-task-actions" name="actions" aria-describedby="action-detail">{{task.actions}}</textarea>
             <em class="form__note" id="action-detail">(One action per line)</em>
         </div>
     </fieldset>
@@ -109,7 +109,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label" for="new-task-username">Username</label>
             <div class="form__input-wrapper">
-                <input class="form__input" id="new-task-username" type="text" name="username" value="{{task.username}}"/>
+                <input class="form__input" data-input id="new-task-username" type="text" name="username" value="{{task.username}}"/>
                 <span class="form__input-border"></span>
             </div>
         </div>
@@ -118,7 +118,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
             <div class="form__field-inner">
                 <label class="form__label" for="new-task-password">Password</label>
                 <div class="form__input-wrapper">
-                    <input class="form__input" id="new-task-password" type="text" name="password" value="{{task.password}}"/>
+                    <input class="form__input" data-input id="new-task-password" type="text" name="password" value="{{task.password}}"/>
                     <span class="form__input-border"></span>
                 </div>
             </div>
@@ -131,7 +131,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 
         <div class="form__field">
             <label class="form__label form__label--static" for="new-task-headers">HTTP Headers</label>
-            <textarea class="form__textarea" id="new-task-headers" name="headers">{{task.headers}}</textarea>
+            <textarea class="form__textarea" data-input id="new-task-headers" name="headers">{{task.headers}}</textarea>
             <em class="form__note">(As key/value pairs, separated by newlines/colons)</em>
         </div>
     </fieldset>
@@ -143,7 +143,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
             <div class="form__field-inner">
                 <label class="form__label" for="new-task-hide-elements">Hide Elements</label>
                 <div class="form__input-wrapper">
-                    <input class="form__input" id="new-task-hide-elements" type="text" name="hideElements" value="{{task.hideElements}}"/>
+                    <input class="form__input" data-input id="new-task-hide-elements" type="text" name="hideElements" value="{{task.hideElements}}"/>
                     <span class="form__input-border"></span>
                 </div>
             </div>
