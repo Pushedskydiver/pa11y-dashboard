@@ -2,9 +2,9 @@
 node_modules
 
 # config files
-config/development.json
-config/production.json
-config/test.json
+_config/development.json
+_config/production.json
+_config/test.json
 
 # production
 public
