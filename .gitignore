@@ -2,7 +2,6 @@
 node_modules
 
 # config files
-_config/development.json
 _config/production.json
 _config/test.json
 
