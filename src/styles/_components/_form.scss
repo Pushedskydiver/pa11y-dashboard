@@ -172,6 +172,7 @@
   border-bottom-width: $core-border-width;
   border-bottom-style: $core-border-style;
   border-bottom-color: darken($core-color-neutral, 10%);
+  border-radius: 0;
   cursor: pointer;
   appearance: none;
   z-index: z(alpha);
