@@ -20,52 +20,40 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{/content}}
 
 {{#added}}
-	<div class="col-md-12 clearfix" data-test="alert">
-		<div class="alert alert-success">
-			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			<strong>Whoop whoop!</strong>
-			<p>Your new URL has been added.</p>
-		</div>
-	</div>
+    <div class="alert alert--success" data-test="alert">
+        <h3 class="alert__title">Whoop whoop!</h3>
+        <p class="alert__body">our new URL has been added.</p>
+    </div>
 {{/added}}
 
 {{#running}}
-	<div class="col-md-12 clearfix" data-test="alert">
-		<div class="alert alert-success">
-			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			<strong>New results incoming!</strong>
-			<p>
-				New results are being generated for this URL in the background.
-				This can take up to a minute to complete.
-			</p>
-		</div>
-	</div>
+    <div class="alert alert--success" data-test="alert">
+        <button class="alert__close" aria-hidden="true" data-dismiss="alert" type="button">
+            <svg class="alert__close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.984 6.422L13.406 12l5.578 5.578-1.406 1.406L12 13.406l-5.578 5.578-1.406-1.406L10.594 12 5.016 6.422l1.406-1.406L12 10.594l5.578-5.578z"/></svg>
+        </button>
+        <h3 class="alert__title">New results incoming!</h3>
+        <p class="alert__body">New results are being generated for this URL in the background. This can take up to a minute to complete.</p>
+    </div>
 {{/running}}
 
 {{#ruleIgnored}}
-	<div class="col-md-12 clearfix" data-test="alert">
-		<div class="alert alert-success">
-			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			<strong>Rule ignored!</strong>
-			<p>
-				You've ignored an accessibility rule for this URL.
-				<a href="{{task.hrefRun}}">Click here to generate results with the ignored rule excluded</a>
-			</p>
-		</div>
-	</div>
+    <div class="alert alert--success" data-test="alert">
+        <button class="alert__close" aria-hidden="true" data-dismiss="alert" type="button">
+            <svg class="alert__close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.984 6.422L13.406 12l5.578 5.578-1.406 1.406L12 13.406l-5.578 5.578-1.406-1.406L10.594 12 5.016 6.422l1.406-1.406L12 10.594l5.578-5.578z"/></svg>
+        </button>
+        <h3 class="alert__title">Rule ignored!</h3>
+        <p class="alert__body">You've ignored an accessibility rule for this URL. <a class="alert__link" href="{{task.hrefRun}}">Click here to generate results with the ignored rule excluded</a>.</p>
+    </div>
 {{/ruleIgnored}}
 
 {{#ruleUnignored}}
-	<div class="col-md-12 clearfix" data-test="alert">
-		<div class="alert alert-success">
-			<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			<strong>Rule unignored!</strong>
-			<p>
-				You've removed an ignored accessibility rule for this URL.
-				<a href="{{task.hrefRun}}">Click here to generate results with the ignored rule included again</a>
-			</p>
-		</div>
-	</div>
+    <div class="alert alert--success" data-test="alert">
+        <button class="alert__close" aria-hidden="true" data-dismiss="alert" type="button">
+            <svg class="alert__close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.984 6.422L13.406 12l5.578 5.578-1.406 1.406L12 13.406l-5.578 5.578-1.406-1.406L10.594 12 5.016 6.422l1.406-1.406L12 10.594l5.578-5.578z"/></svg>
+        </button>
+        <h3 class="alert__title">Rule unignored!</h3>
+        <p class="alert__body">You've removed an ignored accessibility rule for this URL. <a class="alert__link" href="{{task.hrefRun}}">Click here to generate results with the ignored rule included again</a>.</p>
+    </div>
 {{/ruleUnignored}}
 
 {{> task-header}}
@@ -81,11 +69,9 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
 {{#if mainResult}}
 	{{> result}}
 {{else}}
-	<div class="col-md-12" data-test="alert">
-		<div class="alert alert-info">
-			<h4>There are no results to show</h4>
-			<p>Pa11y has not been run against this URL yet so there are no results to show.</p>
-			<p><a href="{{task.hrefRun}}">Click here to generate results for this URL</a>.</p>
-		</div>
-	</div>
+    <div class="alert alert--info" data-test="alert">
+        <h3 class="alert__title">There are no results to show</h3>
+        <p class="alert__body">Pa11y has not been run against this URL yet so there are no results to show</p>
+        <p class="alert__body"><a class="alert__link" href="{{task.hrefRun}}">Click here to generate results for this URL</a>.</p>
+    </div>
 {{/if}}

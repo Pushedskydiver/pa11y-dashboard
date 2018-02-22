@@ -1,4 +1,4 @@
-{{! 
+{{!
 This file is part of Pa11y Dashboard.
 
 Pa11y Dashboard is free software: you can redistribute it and/or modify
@@ -19,12 +19,14 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
     Delete {{task.url}} ({{task.standard}})
 {{/content}}
 
-<form class="col-md-12" action="{{task.hrefDelete}}" method="post" data-test="delete-url-form">
-	<div class="legend">
-		<legend>Delete URL ({{simplify-url task.url}})</legend>
-	</div>
-	<p class="lead">Are you sure you wish to delete <strong>{{task.url}}</strong> <small>({{task.standard}})</small> and it's associated results?</p>
-    <button class="btn btn-success" type="submit">Yes <span class="glyphicon glyphicon-ok"></span></button>
-    <a class="btn btn-primary" href="/">No <span class="glyphicon glyphicon-remove"></span></a>
-</form>
+<form class="form" action="{{task.hrefDelete}}" method="post" data-test="delete-url-form">
 
+    <h1 class="form__title">Delete URL ({{simplify-url task.url}})</h1>
+
+    <div class="form__fieldset">
+    	<p>Are you sure you wish to delete <strong>{{task.url}}</strong> <small>({{task.standard}})</small> and it's associated results?</p>
+    </div>
+
+    <button class="button button--secondary" type="submit">Yes</button>
+    <a class="button button--tertiary" href="/">No</a>
+</form>
