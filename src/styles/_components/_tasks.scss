@@ -62,7 +62,7 @@
 
 .tasks__title {
   @include text(mars);
-  width: calc(100% - 30px);
+  width: calc(100% - #{($core-grid-unit * 3)});
   margin-bottom: ($core-margin / 2);
 
   @include min(m) {

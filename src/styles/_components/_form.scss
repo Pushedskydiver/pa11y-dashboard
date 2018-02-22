@@ -86,6 +86,10 @@
     bottom: ($core-grid-unit / 2);
     left: 0;
   }
+
+  &--hidden {
+    opacity: 0;
+  }
 }
 
 .form__input-wrapper {
@@ -108,7 +112,8 @@
   border-bottom-color: darken($core-color-neutral, 10%);
 
   &:active,
-  &:focus {
+  &:focus,
+  &--filled {
     + .form__input-border {
       width: 100%;
     }
