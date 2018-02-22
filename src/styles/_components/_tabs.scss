@@ -199,6 +199,62 @@
 }
 
 .tabs__detials-list-item {
+  position: relative;
   margin-bottom: ($core-margin * 1.5);
   line-height: $core-secondary-line-height;
+}
+
+.tabs__tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  background-color: $core-color-background;
+  border-width: 1px;
+  border-style: $core-border-style;
+  border-color: rgba($core-color-foreground, 0.2);
+  border-radius: $core-border-radius;
+  box-shadow: 0 5px 10px rgba($core-color-foreground, 0.2);
+  transform: translateX(-50%);
+  z-index: z(alpha);
+}
+
+.tabs__tooltip-arrow {
+  display: block;
+  position: absolute;
+  top: -($core-grid-unit * 2);
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-width: $core-grid-unit;
+  border-top-width: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: $core-color-neutral;
+}
+
+.tabs__tooltip-heading {
+  display: block;
+  background-color: $core-color-neutral;
+  margin-bottom: 0;
+  padding-top: ($core-padding / 2);
+  padding-right: $core-padding;
+  padding-bottom: ($core-padding / 2);
+  padding-left: $core-padding;
+  font-size: calc(0.9em + 0.15vw);
+  font-weight: $core-tertiary-font-weight;
+}
+
+.tabs__tooltip-body {
+  display: block;
+  padding-top: $core-padding;
+  padding-right: $core-padding;
+  padding-bottom: $core-padding;
+  padding-left: $core-padding;
+  font-size: calc(0.7em + 0.15vw);
+  font-weight: $core-tertiary-font-weight;
+  line-height: $core-line-height;
+  overflow-x: auto;
 }

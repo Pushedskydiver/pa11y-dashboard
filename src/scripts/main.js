@@ -13,6 +13,7 @@
     require('./common/options.js').init();
     require('./common/tabs.js').init();
     require('./common/taskFilter.js').init();
+    require('./common/taskToolTip.js').init();
   });
 
 }());
