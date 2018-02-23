@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "npm run production",
-    "heroku-prebuild": "yarn && && gulp default --prod",
+    "heroku-prebuild": "yarn && gulp default --prod",
     "production": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development node index.js",
     "test": "echo \"Error: no test specified\""
