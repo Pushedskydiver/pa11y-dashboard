@@ -17,7 +17,7 @@
   padding-bottom: ($core-padding * 2);
   padding-left: ($core-padding * 2);
   border-radius: $core-border-radius;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 1px 4px 0 rgba($core-color-foreground, 0.14);
 
   &--hidden {
     height: 0;
@@ -38,7 +38,7 @@
     @include transition-03(all);
 
     &:hover {
-      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 5px rgba($core-color-foreground, 0.2);
       transform: translateY(-1px);
     }
   }

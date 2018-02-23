@@ -12,7 +12,7 @@
   height: 45px;
   background-color: $core-color-background;
   border-radius: 50%;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 1px 4px 0 rgba($core-color-foreground, 0.14);
   order: 2;
 
   @include min(l) {
@@ -20,7 +20,7 @@
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 8px 0 rgba($core-color-foreground, 0.2);
     }
   }
 }
