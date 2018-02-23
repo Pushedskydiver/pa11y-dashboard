@@ -16,7 +16,7 @@
 // jscs:disable requireArrowFunctions
 'use strict';
 
-const config = require('../../config/test.json');
+const config = require('../../config/development.json');
 const createNavigator = require('./helper/navigate');
 const createWebserviceClient = require('./helper/webservice');
 const loadFixtures = require('pa11y-webservice/data/fixture/load');

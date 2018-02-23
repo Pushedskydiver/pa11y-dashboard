@@ -7,8 +7,6 @@ cache:
 branches:
   only:
   - master
-services:
-- mongodb
 deploy:
   provider: heroku
   app: pa11y-dash
