@@ -2,6 +2,7 @@
   'use strict';
 
   $(document).ready(() => {
+    require('./common/alert.js').init();
     require('./common/backToTop.js').init();
     require('./common/detailsCollapse.js').init();
     require('./common/form.js').init();
