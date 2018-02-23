@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Hillarys Pa11y Dashboard",
+  "main": "gulpfile.babel.js",
   "author": "Code Computerlove",
   "contributors": [
     "Alex Clapperton (https://alexclapperton.co.uk/)"
