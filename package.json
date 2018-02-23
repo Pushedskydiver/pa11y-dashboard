@@ -14,8 +14,9 @@
   },
   "scripts": {
     "start": "npm run production",
-    "heroku-prebuild": "yarn && yarn global add pm2 && gulp default --prod",
-    "production": "cross-env NODE_ENV=production pm2 start node index.js -i max",
+    "heroku-prebuild": "yarn && && gulp default --prod",
+    "preinstall": "yarn global add pm2",
+    "production": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development node index.js",
     "test": "echo \"Error: no test specified\""
   },
