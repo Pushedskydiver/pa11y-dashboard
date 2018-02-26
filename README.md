@@ -27,7 +27,14 @@ The configurations for the Dashboard are the same as the in Pa11y docs. Look at 
 * **port** - The port to run the application on
 * **noindex** - When true, the dashboard will not be indexed by search engines
 * **readonly** - When true, users will not be able to add, delete or run URLs
-* **siteMessage** - Display
+* **siteMessage** - Display a message on the dashboard homepage
+
+### Webservice Configurations
+
+* **database** - The path to your MongoDB database.
+* **host** - The host to run the application on. This is normally best left as `0.0.0.0` – which means the application will run on any incoming connections
+* **port** - The port to run the webservice application on
+* **cron** - A crontab which describes when to generate reports for each task in the application
 
 ## Development Mode Config
 
@@ -41,6 +48,10 @@ List of environment variables:
 
 * `NOINDEX`
 * `READONLY`
+* `WEBSERVICE_DB`
+* `WEBSERVICE_HOST`
+* `WEBSERVICE_PORT`
+* `WEBSERVICE_CRON`
 
 ## MongoDB Setup
 
@@ -51,3 +62,7 @@ The setup for linking MongoDB to the dashboard is pretty straight forward. Rathe
 Once the MongoDB has been setup, all you need to do is point the dashboard to your MongoDB database. In `development` mode this can be done by changing the database path in `_config/development.json`. in `production` mode this can be set in using an environment variable on Heroku called `WEBSERVICE_DB`.
 
 The path to your MongoDB database should look something like `mongodb://<dbuser>:<dbpassword>@ds125388.mlab.com:25388/<dbname>`.
+
+## Automating Tasks
+
+To automatically generate reports for each URL on your dashboard, you can set a crontab in your configuration to create a schedule of when the reports should be generated. You can use [crontab.guru](https://crontab.guru/) to help you create your crontab. The format of a crontab should look similar to `* * * * *`.
