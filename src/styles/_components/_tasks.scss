@@ -12,10 +12,6 @@
   position: relative;
   background-color: $core-color-background;
   margin-bottom: ($core-margin * 3);
-  padding-top: ($core-padding * 2);
-  padding-right: ($core-padding * 2);
-  padding-bottom: ($core-padding * 2);
-  padding-left: ($core-padding * 2);
   border-radius: $core-border-radius;
   box-shadow: 0 1px 4px 0 rgba($core-color-foreground, 0.14);
 
@@ -47,6 +43,10 @@
 .tasks__item-link {
   display: block;
   color: $core-color-body;
+  padding-top: ($core-padding * 2);
+  padding-right: ($core-padding * 2);
+  padding-bottom: ($core-padding * 2);
+  padding-left: ($core-padding * 2);
   text-decoration: none;
 }
 
