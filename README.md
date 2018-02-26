@@ -22,7 +22,7 @@ The idea behind this is that when you push your dashboard up to production, it w
 
 ## Configurations
 
-The configurations for the Dashboard are the same as in the [Pa11y docs](https://github.com/pa11y/pa11y-dashboard#configurations). Look at the `development` JSON file in the repo for example usage.
+The configurations for the dashboard are the same as in the [Pa11y docs](https://github.com/pa11y/pa11y-dashboard#configurations). Look at the `development` JSON file in the repo for example usage.
 
 * **port** - The port to run the application on
 * **noindex** - When true, the dashboard will not be indexed by search engines
