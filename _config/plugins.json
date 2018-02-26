@@ -45,15 +45,6 @@
   "mqpacker": {
     "sort": true
   },
-  "stylelint": {
-    "failAfterError": true,
-    "syntax": "scss",
-    "reportOutputDir": "src/reports/stylelint/",
-    "reporters": [
-      {"formatter": "verbose", "console": true},
-      {"formatter": "verbose", "save": "stylelint.txt"}
-    ]
-  },
   "uglify": {
     "minimize": true,
     "warnings": false,
