@@ -42,7 +42,7 @@ The config for `development` mode is located in `_config/development.json` and i
 
 ## Production Mode Config
 
-All the configuration for `production` mode should be set up using environment variables on Heroku.
+The configuration for `production` mode should be set up using environment variables on Heroku.
 
 List of environment variables:
 
