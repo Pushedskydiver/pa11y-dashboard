@@ -22,7 +22,7 @@ The idea behind this is that when you push your dashboard up to production, it w
 
 ## Configurations
 
-The configurations for the Dashboard are the same as the in Pa11y docs. Look at the `development` JSON file in the repo for example usage.
+The configurations for the Dashboard are the same as in the [Pa11y docs](https://github.com/pa11y/pa11y-dashboard#configurations). Look at the `development` JSON file in the repo for example usage.
 
 * **port** - The port to run the application on
 * **noindex** - When true, the dashboard will not be indexed by search engines
@@ -57,7 +57,7 @@ List of environment variables:
 
 In order for the dashboard to work it has to connect to a MongoDB database where your URLs and tasks will be stored.
 
-The setup for linking MongoDB to the dashboard is pretty straight forward. Rather than having to install MongoDB locally, There will be a MongoDB set up for each team using mLab, a cloud database service.
+The setup for linking MongoDB to the dashboard is pretty straight forward. Rather than having to install MongoDB locally, There will be a MongoDB set up for each team using [mLab](https://mlab.com/home), a cloud database service.
 
 Once the MongoDB has been setup, all you need to do is point the dashboard to your MongoDB database. In `development` mode this can be done by changing the database path in `_config/development.json`. in `production` mode this can be set in using an environment variable on Heroku called `WEBSERVICE_DB`.
 
