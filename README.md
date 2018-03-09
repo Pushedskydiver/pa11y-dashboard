@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Pushedskydiver/pa11y-dashboard.png?branch=master)](https://travis-ci.org/Pushedskydiver/pa11y-dashboard)
+
 # Accessibility Dashboard - Pa11y
 
 This is a clone of [Pa11y Dashboard](https://github.com/pa11y/pa11y-dashboard), but has been refactored with a cleaner code structure and uses [Gulp](https://gulpjs.com/) and [Webpack](https://webpack.js.org/).
