@@ -1,0 +1,36 @@
+
+29 of 31 sources checked
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/main.scss (ignored)
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_elements/_global.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_alert.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_breadcrumbs.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_buttons.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_code.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_filter.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_footer.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_form.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_graph.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_header.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_logo.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_options.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_result.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_stats.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_tabs.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_task.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_tasks.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_components/_tooltip.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_generic/_fonts.scss (ignored)
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_objects/_layout.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_settings/_variables.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/functions/_z-index.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_buttons.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_container.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_flexbox.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_properties.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_responsive.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_transforms.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_transitions.scss
+ /Users/alexclapperton/Desktop/pa11y-dashboard/src/styles/_tools/mixins/_typography.scss
+
+0 problems found
+

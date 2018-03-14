@@ -54,7 +54,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label" data-label for="new-task-url">URL</label>
             <div class="form__input-wrapper">
-                <input class="form__input" data-input id="new-task-url" type="url" pattern="https?:\/\/.+" name="url" value="{{task.url}}" required/>
+                <input class="form__input form__input--disabled" data-input id="new-task-url" type="url" pattern="https?:\/\/.+" name="url" value="{{task.url}}" disabled required/>
                 <span class="form__input-border"></span>
             </div>
         </div>
@@ -66,7 +66,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
         <div class="form__field">
             <label class="form__label form__label--static" for="new-task-standard">Standard</label>
             <div class="form__select-wrapper">
-                <select class="form__select" id="new-task-standard" data-role="new-task-select" name="standard">
+                <select class="form__select form__select--disabled" id="new-task-standard" data-role="new-task-select" name="standard" disabled>
                 {{#standards}}
                     <option {{#selected}}selected{{/selected}}>{{title}}</option>
                 {{/standards}}
@@ -192,5 +192,7 @@ along with Pa11y Dashboard.  If not, see <http://www.gnu.org/licenses/>.
     </fieldset>
 
     <button class="form__submit button button--primary" type="submit">Save changes</button>
+
+    <a href="/{{task.id}}/edit" class="button button--tertiary">Undo</a>
 
 </form>

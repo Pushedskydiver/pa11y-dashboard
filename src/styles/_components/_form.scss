@@ -118,6 +118,14 @@
       width: 100%;
     }
   }
+
+  &--disabled {
+    border-bottom-style: dashed;
+
+    + .form__input-border {
+      width: 0;
+    }
+  }
 }
 
 .form__textarea {
@@ -182,6 +190,10 @@
     + .form__input-border {
       width: 100%;
     }
+  }
+
+  &--disabled {
+    border-bottom-style: dashed;
   }
 }
 
