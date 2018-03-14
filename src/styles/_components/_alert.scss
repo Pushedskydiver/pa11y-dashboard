@@ -13,6 +13,12 @@
     color: $core-color-background;
   }
 
+  &--danger {
+    background-color: $core-color-tertiary;
+    color: $core-color-background;
+    margin-top: ($core-margin * 2.5);
+  }
+
   &--success {
     background-color: $core-color-secondary;
     color: $core-color-background;
