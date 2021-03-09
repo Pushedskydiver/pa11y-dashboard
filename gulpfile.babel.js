@@ -52,6 +52,7 @@ const buildTask = series(
   copyFavicons, copyManifest, copyFonts
 );
 
+exports.foo = clean;
 exports.default = buildTask;
 exports.watch = watchTask;
 exports.dev = series(buildTask, watchTask);

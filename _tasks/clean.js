@@ -6,10 +6,14 @@
 import del from 'del';
 import { argv, data } from '../gulpfile.babel';
 
-function clean() {
+function clean(cb) {
+  console.log(argv.prod);
+
   if (!argv.prod) {
     return del([data.paths.dist.base]);
   }
+
+  cb();
 }
 
 export default clean;
