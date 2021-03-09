@@ -1,12 +1,39 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const glob = require('glob');
 const path = require('path');
-const plugin = require('./_config/plugins.json');
+const TerserPlugin = require('terser-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const glob = require('glob');
 
-module.exports = function(argv) {
-  let webpackConfig = {
-    entry : {
+function Bundle() {
+  const plugin = require('./_config/plugins.json');
+  const prod = process.env.NODE_ENV === 'production';
+
+  const alias = {
+    // Make it so that 'require' finds the right file.
+    'jquery': 'node_modules/jquery/dist/jquery.min',
+    'flot': 'node_modules/flot/jquery.flot',
+    'flot-time': 'node_modules/flot/jquery.flot.time',
+    'flot-selection': 'node_modules/flot/jquery.flot.selection',
+    'html2canvas': 'node_modules/html2canvas/dist/html2canvas.min'
+  };
+
+  const plugins = [
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    // new BundleAnalyzerPlugin()
+  ];
+
+  return {
+    cache: false,
+
+    devtool: !prod ? 'source-map' : 'eval',
+
+    entry: {
       common: path.resolve(__dirname, 'src/scripts/main.js'),
       vendor: ['jquery', 'flot', 'flot-time', 'flot-selection']
     },
@@ -16,6 +43,8 @@ module.exports = function(argv) {
       filename: '[name].bundle.js',
     },
 
+    mode: prod ? 'production' : 'development',
+
     module: {
       rules: [
         {
@@ -23,7 +52,7 @@ module.exports = function(argv) {
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: {
-            presets: 'env'
+            presets: ['@babel/preset-env']
           }
         }
       ]
@@ -31,62 +60,31 @@ module.exports = function(argv) {
 
     cache: false,
 
-    watch: false,
+    watch: prod ? false : true,
 
     devtool: 'source-map',
 
-    plugins: [
-      new webpack.LoaderOptionsPlugin({
-        debug: true
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: ['vendor'],
-        minChunks: Infinity,
-      }),
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-      }),
-      // new BundleAnalyzerPlugin()
-    ],
+    optimization: {
+      minimizer: prod ? [new TerserPlugin(plugin.uglify)] : [new TerserPlugin({
+        terserOptions: {
+          minimize: false,
+          warnings: false,
+          mangle: false
+        }
+      })]
+    },
+
+    plugins,
 
     resolve: {
-      alias: {
-        // Make it so that 'require' finds the right file.
-        'jquery': 'node_modules/jquery/dist/jquery.min',
-        'flot': 'node_modules/flot/jquery.flot',
-        'flot-time': 'node_modules/flot/jquery.flot.time',
-        'flot-selection': 'node_modules/flot/jquery.flot.selection',
-        'html2canvas': 'node_modules/html2canvas/dist/html2canvas.min'
-      },
+      alias,
       modules: [
         path.resolve('./'),
         path.resolve('./node_modules')
       ],
-      extensions: ['.js']
-    }
+      extensions: ['.ts', '.js']
+    },
   };
+}
 
-  if(argv.prod) {
-    webpackConfig.plugins.push(
-      new webpack.optimize.UglifyJsPlugin(plugin.uglify),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
-      })
-    );
-  } else {
-    webpackConfig.plugins.push(
-      new webpack.optimize.UglifyJsPlugin({
-        minimize: false,
-        warnings: false,
-        sourceMap: true,
-        mangle: false
-      }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"development"'
-      })
-    );
-  }
-
-  return webpackConfig;
-};
+module.exports = Bundle();

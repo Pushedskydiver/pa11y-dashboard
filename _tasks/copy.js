@@ -3,19 +3,31 @@
  * @author Alex Clapperton <alex.clapperton@codecomputerlove.com>
  */
 
-module.exports = (gulp, data) => {
-  gulp.task('copy:favicons', () => {
-      return gulp.src(`${data.paths.source.favicons}**/*`)
-          .pipe(gulp.dest(data.paths.dist.favicons))
-  });
+import { dest, src } from 'gulp';
+import { data } from '../gulpfile.babel';
 
-  gulp.task('copy:manifest', () => {
-      return gulp.src('./_config/site.webmanifest')
-          .pipe(gulp.dest(data.paths.dist.base))
-  });
+function copy(source, destination) {
+  return src(source)
+    .pipe(dest(destination))
+}
 
-  gulp.task('copy:fonts', () => {
-      return gulp.src(data.paths.source.fonts)
-          .pipe(gulp.dest(data.paths.dist.fonts))
-  });
+export function copyFavicons() {
+  const src = `${data.paths.source.favicons}**/*`;
+  const dest = data.paths.dist.favicons;
+
+  return copy(src, dest);
+}
+
+export function copyManifest() {
+  const src = './_config/site.webmanifest';
+  const dest = data.paths.dist.base;
+
+  return copy(src, dest);
+}
+
+export function copyFonts() {
+  const src = data.paths.source.fonts;
+  const dest = data.paths.dist.fonts;
+
+  return copy(src, dest);
 }

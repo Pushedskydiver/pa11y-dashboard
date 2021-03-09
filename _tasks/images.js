@@ -3,14 +3,14 @@
  * @author Alex Clapperton <alex.clapperton@codecomputerlove.com>
  */
 
-import plugins from 'gulp-load-plugins'
+import { dest, src } from 'gulp';
+import plugins from 'gulp-load-plugins';
+import { data } from '../gulpfile.babel';
 
-const $ = plugins()
+const $ = plugins();
 
-module.exports = (gulp, data) => {
-  gulp.task('images', () => {
-      return gulp.src(data.paths.source.images)
-          .pipe($.imagemin(data.plugin.imgmin))
-          .pipe(gulp.dest(data.paths.dist.images));
-  });
+export function images() {
+  return src(data.paths.source.images)
+    .pipe($.imagemin(data.plugin.imgmin))
+    .pipe(dest(data.paths.dist.images));
 }

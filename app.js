@@ -29,10 +29,7 @@ module.exports = initApp;
 function initApp(config, callback) {
   config = defaultConfig(config);
 
-  const port = process.env.PORT || config.port;
-
   let webserviceUrl = config.webservice;
-
   if (typeof webserviceUrl === 'object') {
     webserviceUrl = `http://${webserviceUrl.host}:${webserviceUrl.port}/`;
   }
@@ -96,9 +93,7 @@ function initApp(config, callback) {
   // Load routes
   require('./route/index')(app);
   require('./route/task/index')(app);
-  require('./route/result/index')(app);
   require('./route/result/download')(app);
-
   if (!config.readonly) {
     require('./route/new')(app);
     require('./route/task/delete')(app);
@@ -107,11 +102,13 @@ function initApp(config, callback) {
     require('./route/task/ignore')(app);
     require('./route/task/unignore')(app);
   }
+  // Needs to be loaded after `/route/task/edit`
+  require('./route/result/index')(app);
 
   // Error handling
   app.express.get('*', (request, response) => {
-  response.status(404);
-  response.render('404');
+    response.status(404);
+    response.render('404');
   });
   app.express.use((error, request, response, next) => {
     /* eslint no-unused-vars: 'off' */
@@ -122,15 +119,16 @@ function initApp(config, callback) {
     if (process.env.NODE_ENV !== 'production') {
       response.locals.error = error;
     }
-  response.status(500);
-  response.render('500');
+    response.status(500);
+    response.render('500');
   });
 
-  app.server.listen(port, error => {
+  app.server.listen(config.port, error => {
     const address = app.server.address();
     app.address = `http://${address.address}:${address.port}`;
     callback(error, app);
   });
+
 }
 
 // Get default configurations

@@ -46,32 +46,28 @@
     "sort": true
   },
   "uglify": {
-    "minimize": true,
-    "warnings": false,
-    "sourceMap": false,
-    "mangle": {
-      "except": ["exports", "require"]
-    },
-    "compress": {
-      "sequences": true,
-      "properties": false,
-      "dead_code": false,
-      "drop_debugger": false,
-      "unsafe": false,
-      "conditionals": true,
-      "comparisons": true,
-      "evaluate": true,
-      "booleans": false,
-      "loops": false,
-      "unused": false,
-      "hoist_funs": false,
-      "hoist_vars": false,
-      "if_return": false,
-      "join_vars": true,
-      "cascade": true,
-      "side_effects": false,
-      "warnings": false,
-      "global_defs": {}
+    "terserOptions": {
+      "module": true,
+      "compress": {
+        "sequences": true,
+        "properties": false,
+        "dead_code": false,
+        "drop_debugger": false,
+        "unsafe": false,
+        "conditionals": true,
+        "comparisons": true,
+        "evaluate": true,
+        "booleans": false,
+        "loops": false,
+        "unused": false,
+        "hoist_funs": false,
+        "hoist_vars": false,
+        "if_return": false,
+        "join_vars": true,
+        "side_effects": false,
+        "warnings": false,
+        "global_defs": {}
+      }
     }
   }
 }
