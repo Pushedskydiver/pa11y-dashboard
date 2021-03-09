@@ -12,6 +12,9 @@
     "type": "git",
     "url": "https://github.com/Pushedskydiver/pa11y-dashboard"
   },
+  "engines": {
+    "node": "14.0.0"
+  },
   "scripts": {
     "start": "npm run production",
     "heroku-prebuild": "yarn && yarn webpack:prod && gulp default --prod",
