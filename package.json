@@ -46,7 +46,7 @@
     "pa11y-webservice": "^3.2.0",
     "pa11y-webservice-client-node": "^2.0.0",
     "stylelint-selector-bem-pattern": "^2.0.0",
-    "underscore": "~1.8",
+    "underscore": "~1.12",
     "webpack": "^5.24.4",
     "webpack-bundle-analyzer": "^2.9.2"
   },
