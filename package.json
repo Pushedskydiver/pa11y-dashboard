@@ -42,7 +42,7 @@
     "html2canvas": "^1.0.0-alpha.9",
     "http-headers": "^3.0.1",
     "jquery": "^3.3.1",
-    "moment": "~2.15.2",
+    "moment": "~2.29.2",
     "pa11y-webservice": "^3.2.0",
     "pa11y-webservice-client-node": "^2.0.0",
     "stylelint-selector-bem-pattern": "^2.0.0",
